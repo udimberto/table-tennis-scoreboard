@@ -1,0 +1,25 @@
+doctype HTML
+html(lang="pt-BR")
+
+    head
+        link(rel="stylesheet" href="./css/app.css")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
+        title Table Tennis Scoreboard
+
+        link(rel="icon" type="image/x-icon" href="./images/icon_ping-pong.ico")
+        link(rel="fluid-icon" href="./images/icon_ping-pong_fluid.png" title="Table Tennis Scoreboard")
+
+    body
+        div.flex.flex--stretch
+
+            div#wrapper.flex__item.flex__item--center.text-center.image-blur-container.wrapper
+
+                div.container.fluid
+                    != yield
+
+                div#display-background.image-blur(style="background-image: url('https://i.giphy.com/media/fB2hQGqXXPGpi/giphy-downsized.gif');")
+
+        include ./templates/settings.jade
+
+        script(type="text/javascript" src="./scripts/app.js")
+        script(type="text/javascript" src="./scripts/moment-with-locales.min.js" onload="doTheMagic()")

@@ -1,0 +1,47 @@
+h3.scoreboard__title__pre TABLE TENNIS
+h1.scoreboard__title SCOREBOARD
+
+div.scoreboard
+
+    div.scoreboard__match
+
+        div.scoreboard__match__side
+
+            div.scoreboard__match__side__controls
+
+                button.lg.scoreboard__match__side__controls__btn#addone(type="button" onclick="addPoint('one')" disabled="true")
+                    include ../images/icon_plus.svg
+
+                h1#display-playerone-points.scoreboard__match__side__controls__points 0
+
+                button.lg.scoreboard__match__side__controls__btn#removeone(type="button" onclick="removePoint('one')" disabled="true")
+                    include ../images/icon_minus.svg
+
+
+            input.form__control.lg.text-center.text-uppercase.m-20-ver#playerone(type="text" name="playerone" value="" placeholder="Player Name")
+
+            div#display-playerone-matchpoint.scoreboard__match__side__matchpoint.m-5-top.m-25-bot
+
+        div.scoreboard__match__vs
+            h2 VS
+
+        div.scoreboard__match__side
+
+            div.scoreboard__match__side__controls
+
+                button.lg.scoreboard__match__side__controls__btn#removetwo(type="button" onclick="removePoint('two')" disabled="true")
+                    include ../images/icon_minus.svg
+
+                h1#display-playertwo-points.scoreboard__match__side__controls__points 0
+
+                button.lg.scoreboard__match__side__controls__btn#addtwo(type="button" onclick="addPoint('two')" disabled="true")
+                    include ../images/icon_plus.svg
+
+            input.form__control.lg.text-center.text-uppercase.m-20-ver#playertwo(type="text" name="playertwo" value="" placeholder="Player Name")
+
+            div#display-playertwo-matchpoint.scoreboard__match__side__matchpoint.m-5-top.m-25-bot
+
+    div.scoreboard__actions
+
+        button.lg.scoreboard__actions__btn#start(type="button" onclick="start()") START
+        button.lg.scoreboard__actions__btn#finish(type="button" onclick="finish()") FINISH
