@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "players": {
+      ".read": "true",
+      ".write": "auth !== null",
+      ".indexOn": [ "victories", "points", "name" ]
+    },
+    "matches" : {
+      ".read": "true",
+      ".write": "auth !== null",
+      ".indexOn": [ "from", "to" ]
+    },
+    "notifications" : {
+      ".read": "true",
+      ".write": "auth !== null",
+      ".indexOn": [ "status", "date" ]
+    }
+  }
+}
