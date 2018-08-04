@@ -1,23 +1,29 @@
 {
   "name": "table-tennis-scoreboard",
-  "version": "1.0.0",
-  "description": "Simple Front-End Table Tennis Scoreboard",
-  "main": "docs/index.js",
-  "repository": "https://github.com/jSilverize/countdown.git",
-  "author": "jsilverize <elvitous@gmail.com>",
-  "license": "MIT",
+  "version": "0.1.0",
   "private": true,
+  "homepage": "https://jsilverize.github.io/table-tennis-scoreboard",
   "dependencies": {
-    "harp": "^0.27.0",
-    "moment": "^2.22.2"
+    "aphrodite-ui": "https://github.com/ingresse/aphrodite.git",
+    "concurrently": "^3.6.1",
+    "firebase": "^5.3.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "sass": "^1.10.2"
   },
   "scripts": {
-    "prod-dirs": "rm -rf docs && mkdir docs && mkdir docs/images && mkdir docs/fonts",
-    "dev-dependencies": "npm install && cp -a ./node_modules/moment/min/. ./src/scripts/",
-    "prod-dependencies": "npm install && cp -a ./node_modules/moment/min/. ./docs/scripts/ && cp -a ./src/images/ ./docs/images/ && cp -a ./src/fonts/ ./docs/fonts/",
-    "compile": "harp compile ./src ./docs",
-    "server": "harp server ./src",
-    "build": "npm run prod-dirs && npm run prod-dependencies && npm run compile",
-    "start": "npm run server"
+    "sass": "sass --watch src/styles/scss:src/styles/css",
+    "sass:build": "sass --update src/styles/scss:src/styles/css",
+    "start": "react-scripts start",
+    "dev": "concurrently --kill-others \"npm run sass\" \"npm run start\"",
+    "build": "yarn sass:build && react-scripts build && rm -rf docs && mv build docs",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }

@@ -1,0 +1,32 @@
+
+$this: ".aph.navbar";
+
+#{$this} {
+    background: $colorNavbar;
+
+    &__nav {
+        #{$this} {
+            &__brand {
+                &__logo {
+                    background: none;
+                }
+
+                &__title {
+                    color: $colorWhite;
+                }
+            }
+
+            &__menu {
+                &__drawer {
+                    padding-top   : 28px;
+                    padding-bottom: 28px;
+
+                    background: transparent;
+                    outline   : 0;
+                    border    : 0;
+                    margin    : 0;
+                }
+            }
+        }
+    }
+}

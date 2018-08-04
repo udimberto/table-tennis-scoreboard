@@ -1,0 +1,111 @@
+
+$this: ".scoreboard";
+
+#{$this} {
+    margin   : 0 auto;
+    padding  : 80px 0;
+    width    : 100%;
+    max-width: 720px;
+
+    &__vs,
+    &__side__btn,
+    &__side__team .aph.form__control[type="text"] {
+        font-size  : 60px;
+        line-height: 60px;
+    }
+
+    &__vs {
+        width    : 60px;
+        min-width: 60px;
+        max-width: 60px;
+    }
+
+    &__side {
+        text-align: center;
+
+        &__points {
+            display: inline-block;
+            margin   : 60px auto 40px;
+            padding  : 80px 10px;
+            min-width: 200px;
+
+            font-size  : 150px;
+            line-height: 120px;
+
+            background: $colorBlack;
+            border-radius: 20px;
+        }
+
+        &__team {
+            margin-bottom: 40px;
+
+            .aph.form__control[type="text"] {
+                height: 60px;
+
+                text-transform: uppercase;
+            }
+        }
+
+        &__btn {
+            font-weight: 100;
+
+            color     : $colorWhite;
+            background: transparent;
+
+            width  : 80px;
+            height : 80px;
+            margin : 0;
+            padding: 0;
+
+            outline      : 0;
+            border       : 4px solid $colorWhite;
+            border-radius: 50%;
+
+            transition: opacity .25s linear;
+
+            &:hover,
+            &:focus,
+            &:active {
+                opacity: 1;
+            }
+
+            &:disabled {
+                opacity: 0.15;
+            }
+        }
+    }
+
+    @include xs {
+        &__vs,
+        &__side__btn,
+        &__side__team .aph.form__control[type="text"] {
+            font-size  : 30px;
+            line-height: 30px;
+        }
+
+        &__vs {
+            width    : 30px;
+            min-width: 30px;
+            max-width: 30px;
+        }
+
+        &__side {
+            &__points {
+                margin   : 20px auto 10px;
+                padding  : 40px 10px;
+                min-width: 110px;
+
+                font-size  : 80px;
+                line-height: 70px;
+            }
+
+            &__team {
+                margin-bottom: 20px;
+
+                .aph.form__control[type="text"] {
+                    height: 40px;
+                }
+            }
+        }
+    }
+}

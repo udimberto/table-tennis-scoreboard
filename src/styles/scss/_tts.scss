@@ -1,0 +1,14 @@
+
+$this: ".tts";
+
+#{$this} {
+    height: 100%;
+
+    &__body {
+        width     : 100%;
+        min-height: 100%;
+
+        color     : $colorWhite;
+        background: linear-gradient(145deg, #008bc1, #00b8ff);
+    }
+}

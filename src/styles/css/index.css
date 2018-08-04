@@ -1,0 +1,180 @@
+/* Media Querie mixins
+-------------------------------------------------------------------------- */
+.tts {
+  height: 100%;
+}
+.tts__body {
+  width: 100%;
+  min-height: 100%;
+  color: #fff;
+  background: linear-gradient(145deg, #008bc1, #00b8ff);
+}
+
+.logo {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 320px;
+}
+
+.aph.drawer {
+  top: 60px;
+  border-right: 0;
+  color: #fff;
+  background: rgba(0, 134, 178, 0.95);
+}
+.aph.drawer.active {
+  box-shadow: none;
+}
+.aph.drawer.right {
+  right: -230px;
+  left: auto;
+  transition: right 0.2s linear;
+  animation: none;
+}
+.aph.drawer.right h3 {
+  text-align: center;
+}
+.aph.drawer.right.active {
+  right: 0;
+}
+.aph.drawer.right .aph.form__control {
+  text-align: center;
+}
+.aph.drawer .aph.list__header {
+  color: rgba(255, 255, 255, 0.75);
+}
+.aph.drawer .aph.list__header, .aph.drawer .aph.list__item, .aph.drawer .aph.list__item__link {
+  font-weight: 400;
+}
+@media (max-width: 47.9em) {
+  .aph.drawer.left-xs {
+    right: auto;
+    left: -230px;
+    transition: left 0.2s linear;
+  }
+  .aph.drawer.left-xs.active {
+    left: 0;
+  }
+}
+
+.aph.form__label, .aph.form__control {
+  color: rgba(255, 255, 255, 0.75);
+}
+.aph.form__control[type=text], .aph.form__control[type=number] {
+  color: #fff;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.aph.form__control[type=text]:hover, .aph.form__control[type=text]:focus, .aph.form__control[type=text]:active, .aph.form__control[type=number]:hover, .aph.form__control[type=number]:focus, .aph.form__control[type=number]:active {
+  box-shadow: none;
+  border-bottom-width: 2px;
+}
+@media (max-width: 47.9em) {
+  .aph.form__control {
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom-color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+.aph.navbar {
+  background: rgba(0, 127, 168, 0.95);
+}
+.aph.navbar__nav .aph.navbar__brand__logo {
+  background: none;
+}
+.aph.navbar__nav .aph.navbar__brand__title {
+  color: #fff;
+}
+.aph.navbar__nav .aph.navbar__menu__drawer {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  background: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+}
+
+.scoreboard {
+  margin: 0 auto;
+  padding: 80px 0;
+  width: 100%;
+  max-width: 720px;
+}
+.scoreboard__vs, .scoreboard__side__btn, .scoreboard__side__team .aph.form__control[type=text] {
+  font-size: 60px;
+  line-height: 60px;
+}
+.scoreboard__vs {
+  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
+}
+.scoreboard__side {
+  text-align: center;
+}
+.scoreboard__side__points {
+  display: inline-block;
+  margin: 60px auto 40px;
+  padding: 80px 10px;
+  min-width: 200px;
+  font-size: 150px;
+  line-height: 120px;
+  background: #2d2d2d;
+  border-radius: 20px;
+}
+.scoreboard__side__team {
+  margin-bottom: 40px;
+}
+.scoreboard__side__team .aph.form__control[type=text] {
+  height: 60px;
+  text-transform: uppercase;
+}
+.scoreboard__side__btn {
+  font-weight: 100;
+  color: #fff;
+  background: transparent;
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  transition: opacity 0.25s linear;
+}
+.scoreboard__side__btn:hover, .scoreboard__side__btn:focus, .scoreboard__side__btn:active {
+  opacity: 1;
+}
+.scoreboard__side__btn:disabled {
+  opacity: 0.15;
+}
+@media (max-width: 47.9em) {
+  .scoreboard__vs, .scoreboard__side__btn, .scoreboard__side__team .aph.form__control[type=text] {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .scoreboard__vs {
+    width: 30px;
+    min-width: 30px;
+    max-width: 30px;
+  }
+  .scoreboard__side__points {
+    margin: 20px auto 10px;
+    padding: 40px 10px;
+    min-width: 110px;
+    font-size: 80px;
+    line-height: 70px;
+  }
+  .scoreboard__side__team {
+    margin-bottom: 20px;
+  }
+  .scoreboard__side__team .aph.form__control[type=text] {
+    height: 40px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
