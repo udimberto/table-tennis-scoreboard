@@ -13,11 +13,11 @@ const configs = {
 };
 
 /* Default App */
-const app = firebase.initializeApp(configs);
+let app = firebase.initializeApp(configs);
 
 /* Initializer */
 const init = (options = {}) => {
-    return firebase.initializeApp(configs);
+    return app = firebase.initializeApp(configs);
 };
 
 /* Database */
@@ -30,10 +30,16 @@ const db = (optionalApp) => {
     return _firestore;
 };
 
+/* Matches Database */
+const matches = () => {
+    return db().collection('matches');
+};
+
 /* Export */
 export const firebaseService = {
     configs,
     init,
     app,
     db,
+    matches,
 };

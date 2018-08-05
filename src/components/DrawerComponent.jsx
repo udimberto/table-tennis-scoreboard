@@ -38,7 +38,7 @@ class Drawer extends Component {
     /* Render */
     render() {
         return (
-            <div className="aph drawer right left-xs p-40-bot"
+            <div className="aph drawer right left-xs p-40-bot no-select"
                  id={this.props.id || 'drawerMenu'}>
                 <h3 className="aph text-white m-5-top">
                     Match Settings

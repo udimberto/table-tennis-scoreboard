@@ -24,7 +24,8 @@ class Scoreboard extends Component {
         this.add         = this.add.bind(this);
         this.remove      = this.remove.bind(this);
         this.handleInput = this.handleInput.bind(this);
-        this.end         = this.end.bind(this);
+        this.restart     = this.restart.bind(this);
+        this.start       = this.start.bind(this);
     }
 
     /* Add */
@@ -63,46 +64,134 @@ class Scoreboard extends Component {
             ...this.state,
             [evt.target.name]: {
                 ...this.state[evt.target.name],
-                team: evt.target.value,
+                team: evt.target.value.toUpperCase(),
             }
         });
     }
 
+    /* Handle Score */
+    handleScore(side) {
+        if (this.state[side].points < this.settings.max) {
+            return;
+        }
+
+        if (!window.confirm('MATCH REALY ENDED?')) {
+            this.setState({
+                ...this.state,
+                [side]: {
+                    ...this.state[side],
+                    points: (this.state[side].points - 1)
+                }
+            });
+
+            return;
+        }
+
+        this.end();
+    }
+
+    /* Check Score */
     checkScore() {
-        console.log('checkScore');
+        const max  = this.settings.max;
+        const toOt = (max - 1);
+        const isOt =
+            (this.state.left.points === toOt) &&
+            (this.state.right.points === toOt)
+        ;
+
+        if (isOt) {
+            this.settings.max = (this.settings.max + this.settings.ot);
+            return;
+        }
+
+        this.handleScore('left');
+        this.handleScore('right');
     }
 
-    reset() {
-        this.settings = settings.get();
-        this.setState(matches.get());
+    /* Reset Values */
+    resetValues(teamLeft, teamRight) {
+        const _teamLeft  = teamLeft || (this.state.left.team);
+        const _teamRight = teamRight || (this.state.right.team);
+
+        this.setState(
+            matches.get(),
+            () => {
+                this.setState({
+                    ...this.state,
+                    left: {
+                        ...this.state.left,
+                        team: _teamLeft,
+                    },
+                    right: {
+                        ...this.state.right,
+                        team: _teamRight,
+                    },
+                })
+            }
+        );
     }
 
-    /* End */
+    /* Restart */
+    restart() {
+        const teamLeft   = (this.state.left.team || 'Hoyama');
+        const teamRight  = (this.state.right.team || 'Calderano');
+        const confirmMsg =
+            'MATCH IN PROGRESS\n' +
+            teamLeft +
+            ' ' +
+            this.state.left.points +
+            ' x ' +
+            this.state.right.points +
+            ' ' +
+            teamRight +
+            '\nDO YOU WANT TO RESTART?'
+        ;
+
+        if (!window.confirm(confirmMsg)) {
+            return;
+        }
+
+        this.resetValues(teamLeft, teamRight);
+    }
+
+    /* End Match */
     end() {
+        const winnerTeam =
+            (this.state.left.points > this.state.right.points) ?
+                this.state.left.team
+                :
+                this.state.right.team
+        ;
 
+        if (!winnerTeam) {
+            window.alert('THE WINNER TEAM doesn\'t have a name.\nSo, it\'s not been saved to our database.');
+        }
+
+        this.setState({
+            ...this.state,
+            status: 'ended',
+            winner: winnerTeam,
+        }, () => {
+            if (!winnerTeam) {
+                return;
+            }
+
+            matches.save(Object.assign({}, this.state));
+        });
+
+    }
+
+    /* Start Over */
+    start() {
+        this.settings = settings.get();
+        this.resetValues();
     }
 
     render() {
         return (
             <MatchContext.Provider value={this.state}>
-                <section className="scoreboard">
+                <section className="scoreboard aph m-20-top no-select">
                     <div className="aph container text-center">
-                        <div className="row center-xs middle-xs">
-                            <div className="col-xs-6 col-sm-4 col-md-4 col-lg-3">
-                                <div className="aph p-40-ver">
-                                    <button className="aph btn btn--bordered btn--block btn--white"
-                                            type="button"
-                                            disabled={
-                                                (this.state.left.points !== this.settings.max) &&
-                                                (this.state.right.points !== this.settings.max)
-                                            }
-                                            onClick={this.end}>
-                                        FINISH
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
                         <div className="row center-xs middle-xs">
                             <div className="col-xs scoreboard__side text-center">
                                 <MatchContext.Consumer>
@@ -111,6 +200,7 @@ class Scoreboard extends Component {
                                             <Side id="left" {...this.state.left}
                                                   add={ () => this.add('left') }
                                                   remove={ () => this.remove('left') }
+                                                  disabled={this.state.status === 'ended'}
                                                   handleInput={this.handleInput}
                                                   settings={this.settings} />
                                     }
@@ -124,10 +214,42 @@ class Scoreboard extends Component {
                                             <Side id="right" {...this.state.right}
                                                   add={ () => this.add('right') }
                                                   remove={ () => this.remove('right') }
+                                                  disabled={this.state.status === 'ended'}
                                                   handleInput={this.handleInput}
                                                   settings={this.settings} />
                                     }
                                 </MatchContext.Consumer>
+                            </div>
+                        </div>
+
+                        <div className="row center-xs middle-xs aph m-40-top">
+                            <div className="col-xs-8 col-sm-4 col-md-4 col-lg-4">
+                                <div className="aph p-20-top">
+                                    {
+                                        (this.state.status !== 'ended') ?
+                                            (
+                                                <button className="aph btn btn--bordered btn--block btn--white"
+                                                        type="button"
+                                                        tabIndex="-1"
+                                                        disabled={
+                                                            (!this.state.left.points) &&
+                                                            (!this.state.right.points)
+                                                        }
+                                                        onClick={this.restart}>
+                                                    RESTART
+                                                </button>
+                                            )
+                                            :
+                                            (
+                                                <button className="aph btn btn--bordered btn--block btn--white"
+                                                        type="button"
+                                                        tabIndex="-1"
+                                                        onClick={this.start}>
+                                                    NEW MATCH
+                                                </button>
+                                            )
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>

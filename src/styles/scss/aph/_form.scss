@@ -14,13 +14,13 @@ $this: ".aph.form";
             background   : transparent;
             box-shadow   : none;
             border-radius: 0;
-            border-bottom: 1px solid rgba($colorWhite, 0.25);
+            border-bottom: 4px solid rgba($colorWhite, 0.25);
 
             &:hover,
             &:focus,
             &:active {
                 box-shadow: none;
-                border-bottom-width: 2px;
+                border-bottom-color: $colorWhite;
             }
         }
     }

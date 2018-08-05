@@ -21,7 +21,8 @@ class ScoreboardSide extends Component {
             <div className="scoreboard__side">
                 <button className="scoreboard__side__btn"
                         type="button"
-                        disabled={this.state.points <= 0}
+                        tabIndex="-1"
+                        disabled={this.state.points <= 0 || this.state.disabled}
                         id={`scoreboardSide${this.state.id}BtnRemove`}
                         onClick={this.props.remove}>
                     —
@@ -42,7 +43,8 @@ class ScoreboardSide extends Component {
                 </div>
                 <button className="scoreboard__side__btn"
                         type="button"
-                        disabled={this.state.points >= this.state.settings.max}
+                        tabIndex="-1"
+                        disabled={this.state.points >= this.state.settings.max || this.state.disabled}
                         id={`scoreboardSide${this.state.id}BtnAdd`}
                         onClick={this.props.add}>
                     +

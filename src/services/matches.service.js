@@ -1,4 +1,5 @@
 /* Modules */
+import moment from 'moment';
 import { firebaseService as fire } from './';
 
 /* Database */
@@ -12,11 +13,12 @@ let _side = {
 
 /* Default data */
 let _default = {
-    start : null,
-    end   : null,
-    winner: '',
-    left  : Object.assign({}, _side),
-    right : Object.assign({}, _side),
+    startedAt: null,
+    endedAt  : null,
+    status   : 'waiting',
+    winner   : '',
+    left     : Object.assign({}, _side),
+    right    : Object.assign({}, _side),
 };
 
 /* Data */
@@ -26,6 +28,7 @@ let data = Object.assign({}, _default);
  * Get settings data
  */
 const get = () => {
+    data.startedAt = moment().format();
     return data;
 };
 
@@ -45,6 +48,8 @@ const save = (matchData = null) => {
     if (!matchData) {
         return;
     }
+
+    matchData.endedAt = moment().format();
 
     db.add(matchData);
 }

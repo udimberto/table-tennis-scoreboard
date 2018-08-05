@@ -5,27 +5,29 @@ $this: ".scoreboard";
     margin   : 0 auto;
     padding  : 80px 0;
     width    : 100%;
-    max-width: 720px;
-
-    &__vs,
-    &__side__btn,
-    &__side__team .aph.form__control[type="text"] {
-        font-size  : 60px;
-        line-height: 60px;
-    }
+    max-width: 820px;
 
     &__vs {
-        width    : 60px;
-        min-width: 60px;
-        max-width: 60px;
+        width    : 80px;
+        min-width: 80px;
+        max-width: 80px;
+
+        font-size  : 80px;
+        line-height: 80px;
     }
 
     &__side {
         text-align: center;
 
+        &__btn,
+        &__team .aph.form__control[type="text"] {
+            font-size  : 50px;
+            line-height: 60px;
+        }
+
         &__points {
             display: inline-block;
-            margin   : 60px auto 40px;
+            margin   : 40px auto 40px;
             padding  : 80px 10px;
             min-width: 200px;
 
@@ -43,6 +45,13 @@ $this: ".scoreboard";
                 height: 60px;
 
                 text-transform: uppercase;
+
+                &::placeholder,
+                &::-webkit-input-placeholder,
+                &::-moz-placeholder,
+                &:-ms-input-placeholder {
+                    @include placeholder-style(50px);
+                }
             }
         }
 
