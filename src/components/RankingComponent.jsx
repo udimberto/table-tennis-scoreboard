@@ -86,7 +86,7 @@ class Ranking extends Component {
                                     </div>
                                 </div>
 
-                                <table className="aph table table--hover">
+                                <table className="aph table table--responsive table--hover">
                                     <thead>
                                         <tr>
                                             <th>

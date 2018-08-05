@@ -13,14 +13,14 @@ class App extends Component {
             <div className="aph flex__item">
                 <Navbar />
                 <Scoreboard />
-                <div className="aph container p-40-bot">
+                <div className="aph container fluid p-40-bot">
                     <div className="row top-xs">
-                        <div className="col-xs-12 col-sm-12 col-md-4 first-xs first-sm last-md">
+                        <div className="col-xs-12 col-sm-12 col-md-5 first-xs first-sm last-md">
                             <div className="aph p-10-ver">
                                 <Ranking />
                             </div>
                         </div>
-                        <div className="col-xs-12 col-sm-12 col-md-8">
+                        <div className="col-xs-12 col-sm-12 col-md-7">
                             <div className="aph p-10-ver">
                                 <Matches />
                             </div>

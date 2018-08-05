@@ -35,7 +35,7 @@ class Matches extends Component {
         }, () => {
             matches
             .db
-            .where('status', '==', 'ended')
+            .orderBy('endedAt', 'desc')
             .limit(40)
             .onSnapshot((matchesSnapshot) => {
                 let matches = [];
