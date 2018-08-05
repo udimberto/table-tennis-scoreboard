@@ -1,6 +1,6 @@
 /* Modules */
 import moment from 'moment';
-import { firebaseService as fire } from './';
+import { firebaseService as fire, rankingService as rank } from './';
 
 /* Database */
 const db = fire.db().collection('matches');
@@ -52,6 +52,7 @@ const save = (matchData = null) => {
     matchData.endedAt = moment().format();
 
     db.add(matchData);
+    rank.sum(matchData);
 }
 
 /* Export */

@@ -82,7 +82,7 @@ class Drawer extends Component {
                             </div>
                         </div>
                     </li>
-                    <li className="aph list__item">
+                    {/*<li className="aph list__item">
                         <div className="row middle-xs">
                             <div className="col-xs-8">
                                 <label className="aph form__label"
@@ -100,7 +100,7 @@ class Drawer extends Component {
                                        value={this.state.bestOf} />
                             </div>
                         </div>
-                    </li>
+                    </li>*/}
                     <li className="aph list__item p-40-bot">
                         <div className="aph p-10-ver m-15-top">
                             <button className="aph btn btn--bordered btn--block btn--white"
