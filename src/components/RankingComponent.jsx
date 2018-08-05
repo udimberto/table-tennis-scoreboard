@@ -121,7 +121,11 @@ class Ranking extends Component {
                             </div>
                         )
                         :
-                        ('')
+                        (
+                            <div className="ranking__loading">
+                                Sorry, no data
+                            </div>
+                        )
                 }
             </div>
         );

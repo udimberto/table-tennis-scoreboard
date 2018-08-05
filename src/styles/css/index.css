@@ -163,7 +163,7 @@
 .matches__match__team__points {
   line-height: 15px;
   display: inline-block;
-  margin: 10px 0;
+  margin: 10px 0 0;
   padding: 12px 10px 13px;
   min-width: 40px;
   background: rgba(45, 45, 45, 0.15);
