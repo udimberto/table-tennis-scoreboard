@@ -1,0 +1,66 @@
+
+$this: ".matches";
+
+#{$this} {
+    &__match {
+        padding: 20px;
+        margin : 0 0 20px;
+
+        background   : rgba($colorWhite, .15);
+        border-radius: 8px;
+
+        &__team {
+            &.col-xs {
+                -ms-flex-preferred-size: 37.5%;
+                flex-basis: 37.5%;
+                max-width: 37.5%;
+            }
+
+            &.left {
+                text-align: right;
+            }
+
+            &.right {
+                text-align: left;
+            }
+
+            &__points {
+                line-height: 15px;
+
+                display: inline-block;
+                margin : 10px 0;
+                padding: 12px 10px 13px;
+                min-width: 40px;
+
+                background: rgba($colorBlack, .15);
+                border-radius: 8px;
+            }
+        }
+
+        &__duration {
+            font-size  : 10px;
+            line-height: 10px;
+
+            &__label {
+                margin : 0 3px;
+                padding: 3px 5px;
+                background: rgba($colorBlack, 0.1);
+                border-radius: 4px;
+            }
+        }
+    }
+
+    @include xs {
+        &__match {
+            border-radius: 0;
+
+            &__team {
+                &.col-xs {
+                    -ms-flex-preferred-size: 29%;
+                    flex-basis: 29%;
+                    max-width: 29%;
+                }
+            }
+        }
+    }
+}

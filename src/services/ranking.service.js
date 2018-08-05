@@ -93,4 +93,5 @@ const sum = (matchData = null) => {
 export let rankingService = {
     get,
     sum,
+    db: ranking,
 };

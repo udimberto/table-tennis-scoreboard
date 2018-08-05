@@ -1,0 +1,28 @@
+
+$this: ".ranking";
+
+#{$this} {
+    &__legend {
+        color: rgba($colorWhite, 0.5);
+    }
+
+    .aph.table {
+        th {
+            color: $colorWhite !important;
+
+            &.text-center {
+                text-align: center;
+            }
+        }
+
+        &--hover {
+            tbody {
+                tr {
+                    &:hover {
+                        background: rgba($colorWhite, 0.15) !important;
+                    }
+                }
+            }
+        }
+    }
+}

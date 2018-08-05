@@ -57,6 +57,7 @@ const save = (matchData = null) => {
 
 /* Export */
 export let matchesService = {
+    db,
     get,
     set,
     save,
