@@ -78,10 +78,10 @@ class Ranking extends Component {
                                             Victories = <strong>V</strong>
                                         </div>
                                         <div className="col-xs-4 text-center">
-                                            Points = <strong>P</strong>
+                                            Matches = <strong>M</strong>
                                         </div>
                                         <div className="col-xs-4 text-right">
-                                            Matches = <strong>M</strong>
+                                            Points = <strong>P</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -92,28 +92,65 @@ class Ranking extends Component {
                                             <th>
                                                 #
                                             </th>
-                                            <th>
+                                            <th className="aph p-0-hor">
                                                 Player
                                             </th>
                                             <th className="text-center">
                                                 V<span className="hide-xs">ictories</span>
                                             </th>
                                             <th className="text-center">
-                                                P<span className="hide-xs">oints</span>
+                                                M<span className="hide-xs">atches</span>
                                             </th>
                                             <th className="text-center">
-                                                M<span className="hide-xs">atches</span>
+                                                P<span className="hide-xs">oints</span>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {this.state.ranking.map((player, playerIndex) =>
                                             <tr key={playerIndex}>
-                                                <td>{playerIndex + 1}</td>
-                                                <td>{player.team}</td>
-                                                <td className="text-center">{player.victories}</td>
-                                                <td className="text-center">{player.points}</td>
-                                                <td className="text-center">{player.matches}</td>
+                                                <td>
+                                                    {playerIndex + 1}
+                                                </td>
+                                                <td className="aph p-0-hor">
+                                                    {player.team}
+                                                </td>
+                                                <td className="text-center">
+                                                    {
+                                                        player
+                                                        .victories
+                                                        .toLocaleString(
+                                                            navigator.language,
+                                                            {
+                                                                minimumFractionDigits: 0
+                                                            }
+                                                        )
+                                                    }
+                                                </td>
+                                                <td className="text-center">
+                                                    {
+                                                        player
+                                                        .matches
+                                                        .toLocaleString(
+                                                            navigator.language,
+                                                            {
+                                                                minimumFractionDigits: 0
+                                                            }
+                                                        )
+                                                    }
+                                                </td>
+                                                <td className="text-center">
+                                                    {
+                                                        player
+                                                        .points
+                                                        .toLocaleString(
+                                                            navigator.language,
+                                                            {
+                                                                minimumFractionDigits: 0
+                                                            }
+                                                        )
+                                                    }
+                                                </td>
                                             </tr>
                                         )}
                                     </tbody>

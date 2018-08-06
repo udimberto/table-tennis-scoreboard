@@ -190,7 +190,7 @@ class Scoreboard extends Component {
     render() {
         return (
             <MatchContext.Provider value={this.state}>
-                <section className="scoreboard aph m-20-top no-select">
+                <section className="scoreboard aph m-20-top m-30-top-xs no-select">
                     <div className="aph container text-center">
                         <div className="row center-xs middle-xs">
                             <div className="col-xs scoreboard__side text-center">

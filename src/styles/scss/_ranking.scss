@@ -25,4 +25,13 @@ $this: ".ranking";
             }
         }
     }
+
+    @include xs {
+        .aph.table {
+            th, td {
+                padding-top   : 4px;
+                padding-bottom: 5px;
+            }
+        }
+    }
 }

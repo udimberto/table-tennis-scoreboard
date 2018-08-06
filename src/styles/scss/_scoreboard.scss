@@ -85,6 +85,8 @@ $this: ".scoreboard";
     }
 
     @include xs {
+        padding-bottom: 40px;
+
         &__vs,
         &__side__btn,
         &__side__team .aph.form__control[type="text"] {

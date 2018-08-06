@@ -3,17 +3,28 @@ $this: ".matches";
 
 #{$this} {
     &__match {
-        padding: 20px;
+        padding: 15px 20px;
         margin : 0 0 20px;
 
         background   : rgba($colorWhite, .15);
         border-radius: 8px;
+
+        &__vs,
+        &__team {
+            padding-top: 8px;
+        }
 
         &__team {
             &.col-xs {
                 -ms-flex-preferred-size: 37.5%;
                 flex-basis: 37.5%;
                 max-width: 37.5%;
+
+                @include lg {
+                    -ms-flex-preferred-size: 28.5%;
+                    flex-basis: 28.5%;
+                    max-width: 28.5%;
+                }
             }
 
             &.left {
@@ -53,6 +64,7 @@ $this: ".matches";
     @include xs {
         &__match {
             border-radius: 0;
+            margin-bottom: 10px;
 
             &__team {
                 &.col-xs {

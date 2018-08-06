@@ -144,15 +144,25 @@
 }
 
 .matches__match {
-  padding: 20px;
+  padding: 15px 20px;
   margin: 0 0 20px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 8px;
+}
+.matches__match__vs, .matches__match__team {
+  padding-top: 8px;
 }
 .matches__match__team.col-xs {
   -ms-flex-preferred-size: 37.5%;
   flex-basis: 37.5%;
   max-width: 37.5%;
+}
+@media (min-width: 75em) {
+  .matches__match__team.col-xs {
+    -ms-flex-preferred-size: 28.5%;
+    flex-basis: 28.5%;
+    max-width: 28.5%;
+  }
 }
 .matches__match__team.left {
   text-align: right;
@@ -182,6 +192,7 @@
 @media (max-width: 47.9em) {
   .matches__match {
     border-radius: 0;
+    margin-bottom: 10px;
   }
   .matches__match__team.col-xs {
     -ms-flex-preferred-size: 29%;
@@ -201,6 +212,12 @@
 }
 .ranking .aph.table--hover tbody tr:hover {
   background: rgba(255, 255, 255, 0.15) !important;
+}
+@media (max-width: 47.9em) {
+  .ranking .aph.table th, .ranking .aph.table td {
+    padding-top: 4px;
+    padding-bottom: 5px;
+  }
 }
 
 .scoreboard {
@@ -266,6 +283,9 @@
   opacity: 0.15;
 }
 @media (max-width: 47.9em) {
+  .scoreboard {
+    padding-bottom: 40px;
+  }
   .scoreboard__vs, .scoreboard__side__btn, .scoreboard__side__team .aph.form__control[type=text] {
     font-size: 30px;
     line-height: 30px;
