@@ -70,6 +70,10 @@
 .aph.drawer.active {
   box-shadow: none;
 }
+.aph.drawer.lg {
+  left: -320px;
+  width: 320px;
+}
 .aph.drawer.right {
   right: -230px;
   left: auto;
@@ -78,6 +82,9 @@
 }
 .aph.drawer.right h3 {
   text-align: center;
+}
+.aph.drawer.right.lg {
+  right: -320px;
 }
 .aph.drawer.right.active {
   right: 0;
@@ -96,6 +103,9 @@
     right: auto;
     left: -230px;
     transition: left 0.2s linear;
+  }
+  .aph.drawer.left-xs.lg {
+    left: -320px;
   }
   .aph.drawer.left-xs.active {
     left: 0;
@@ -289,16 +299,10 @@
   opacity: 0.15;
 }
 .scoreboard__side__btn.xs {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   font-size: 30px;
-  line-height: 25px;
-}
-.scoreboard__side__btn.xs.left {
-  margin-left: 20px;
-}
-.scoreboard__side__btn.xs.right {
-  margin-right: 20px;
+  line-height: 28px;
 }
 @media (max-width: 47.9em) {
   .scoreboard {
@@ -314,21 +318,30 @@
     max-width: 30px;
   }
   .scoreboard__side__points {
-    margin: 20px auto 10px;
+    margin: 20px auto;
     padding: 40px 10px;
     min-width: 110px;
     font-size: 80px;
     line-height: 70px;
   }
-  .scoreboard__side__team {
-    margin-bottom: 20px;
-  }
   .scoreboard__side__team .aph.form__control[type=text] {
     height: 40px;
   }
-  .scoreboard__side__btn:not(.xs) {
-    width: 60px;
-    height: 60px;
+  .scoreboard__side__btn {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 359px) {
+  .scoreboard__side__btn {
+    width: 40px;
+    height: 40px;
+  }
+  .scoreboard__side__btn.xs {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    line-height: 18px;
   }
 }
 

@@ -72,16 +72,16 @@ class Ranking extends Component {
                     (this.state.ranking.length) ?
                         (
                             <div className="aph m--10-hor-xs">
-                                <div className="aph visible-xs p-10-hor m-10-bot ranking__legend">
+                                <div className="aph visible-xs p-20-hor m-10-bot ranking__legend">
                                     <div className="row middle-xs">
                                         <div className="col-xs-4 text-left">
-                                            Victories = <strong>V</strong>
+                                            <strong>V</strong>ictories
                                         </div>
                                         <div className="col-xs-4 text-center">
-                                            Matches = <strong>M</strong>
+                                            <strong>M</strong>atches
                                         </div>
                                         <div className="col-xs-4 text-right">
-                                            Points = <strong>P</strong>
+                                            <strong>P</strong>oints
                                         </div>
                                     </div>
                                 </div>
@@ -159,9 +159,11 @@ class Ranking extends Component {
                         )
                         :
                         (
-                            <div className="ranking__loading">
-                                Sorry, no data
-                            </div>
+                            (this.state.loading) ? ('') : (
+                                    <div className="ranking__loading aph p-40-bot">
+                                        Sorry, no data
+                                    </div>
+                                )
                         )
                 }
             </div>

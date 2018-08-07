@@ -76,8 +76,8 @@ class Matches extends Component {
                 {
                     (this.state.loading) ?
                         (
-                            <div className="matches__loading">
-                                Matches...
+                            <div className="matches__loading aph p-40-bot">
+                                Loading...
                             </div>
                         )
                         :
@@ -135,9 +135,11 @@ class Matches extends Component {
                         )
                         :
                         (
-                            <div className="matches__loading">
-                                Sorry, no data
-                            </div>
+                            (this.state.loading) ? ('') : (
+                                    <div className="matches__loading aph p-40-bot">
+                                        Sorry, no data
+                                    </div>
+                                )
                         )
                     }
             </div>

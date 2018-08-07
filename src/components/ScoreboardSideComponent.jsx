@@ -37,44 +37,52 @@ class ScoreboardSide extends Component {
                 {
                     (this.state.id === 'left') ?
                         (
-                            <div className="scoreboard__side__actions">
-                                <button className="scoreboard__side__btn"
-                                        type="button"
-                                        tabIndex="-1"
-                                        disabled={this.state.points >= this.state.settings.max || this.state.disabled}
-                                        id={`scoreboardSide${this.state.id}BtnAdd`}
-                                        onClick={this.props.add}>
-                                    +
-                                </button>
-                                <button className={`scoreboard__side__btn xs ${this.state.id}`}
-                                        type="button"
-                                        tabIndex="-1"
-                                        disabled={this.state.points <= 0 || this.state.disabled}
-                                        id={`scoreboardSide${this.state.id}BtnRemove`}
-                                        onClick={this.props.remove}>
-                                    —
-                                </button>
+                            <div className="scoreboard__side__actions row middle-xs">
+                                <div className="col-xs-6 text-right">
+                                    <button className="scoreboard__side__btn"
+                                            type="button"
+                                            tabIndex="-1"
+                                            disabled={this.state.points >= this.state.settings.max || this.state.disabled}
+                                            id={`scoreboardSide${this.state.id}BtnAdd`}
+                                            onClick={this.props.add}>
+                                        +
+                                    </button>
+                                </div>
+                                <div className="col-xs-6 text-left">
+                                    <button className={`scoreboard__side__btn xs ${this.state.id}`}
+                                            type="button"
+                                            tabIndex="-1"
+                                            disabled={this.state.points <= 0 || this.state.disabled}
+                                            id={`scoreboardSide${this.state.id}BtnRemove`}
+                                            onClick={this.props.remove}>
+                                        —
+                                    </button>
+                                </div>
                             </div>
                         )
                         :
                         (
-                            <div className="scoreboard__side__actions">
-                                <button className={`scoreboard__side__btn xs ${this.state.id}`}
-                                        type="button"
-                                        tabIndex="-1"
-                                        disabled={this.state.points <= 0 || this.state.disabled}
-                                        id={`scoreboardSide${this.state.id}BtnRemove`}
-                                        onClick={this.props.remove}>
-                                    —
-                                </button>
-                                <button className="scoreboard__side__btn"
-                                        type="button"
-                                        tabIndex="-1"
-                                        disabled={this.state.points >= this.state.settings.max || this.state.disabled}
-                                        id={`scoreboardSide${this.state.id}BtnAdd`}
-                                        onClick={this.props.add}>
-                                    +
-                                </button>
+                            <div className="scoreboard__side__actions row middle-xs">
+                                <div className="col-xs-6 text-right">
+                                    <button className={`scoreboard__side__btn xs ${this.state.id}`}
+                                            type="button"
+                                            tabIndex="-1"
+                                            disabled={this.state.points <= 0 || this.state.disabled}
+                                            id={`scoreboardSide${this.state.id}BtnRemove`}
+                                            onClick={this.props.remove}>
+                                        —
+                                    </button>
+                                </div>
+                                <div className="col-xs-6 text-left">
+                                    <button className="scoreboard__side__btn"
+                                            type="button"
+                                            tabIndex="-1"
+                                            disabled={this.state.points >= this.state.settings.max || this.state.disabled}
+                                            id={`scoreboardSide${this.state.id}BtnAdd`}
+                                            onClick={this.props.add}>
+                                        +
+                                    </button>
+                                </div>
                             </div>
                         )
                 }

@@ -1,10 +1,17 @@
 /* Media Querie mixins
 -------------------------------------------------------------------------- */
+$xs-phone-width   : 359px;
 $phone-width      : 47.9em;
 $tablet-width     : 48em;
 $desktop-width    : 64em;
 $bigDesktop-width : 75em;
 $hugeDesktop-width: 75.1em;
+
+@mixin xxs {
+    @media (max-width: #{$xs-phone-width}) {
+        @content;
+    }
+}
 
 @mixin xs {
     @media (max-width: #{$tablet-width - .1em}) {

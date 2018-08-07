@@ -4,8 +4,11 @@ import React, { Component } from 'react';
 /* Services */
 import { settingsService as settings } from '../services';
 
+/* Components */
+import Ranking from './RankingComponent';
+
 /* Component */
-class Drawer extends Component {
+class DrawerSettingsRanking extends Component {
 
     /* Constructor */
     constructor(props) {
@@ -38,8 +41,8 @@ class Drawer extends Component {
     /* Render */
     render() {
         return (
-            <div className="aph drawer right left-xs p-40-bot no-select"
-                 id={this.props.id || 'drawerMenu'}>
+            <div className="aph drawer right lg left-xs p-40-bot no-select"
+                 id={this.props.id || 'drawerSettingsRanking'}>
                 <h3 className="aph text-white m-5-top">
                     Match Settings
                 </h3>
@@ -101,7 +104,7 @@ class Drawer extends Component {
                             </div>
                         </div>
                     </li>*/}
-                    <li className="aph list__item p-40-bot">
+                    <li className="aph list__item p-10-bot">
                         <div className="aph p-10-ver m-15-top">
                             <button className="aph btn btn--bordered btn--block btn--white"
                                     type="button"
@@ -112,10 +115,14 @@ class Drawer extends Component {
                         </div>
                     </li>
                 </ul>
+
+                <div className="aph m--15-hor p-40-bot visible-xs">
+                    <Ranking />
+                </div>
             </div>
         )
     }
 }
 
 /* Export Component */
-export default Drawer;
+export default DrawerSettingsRanking;

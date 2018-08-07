@@ -106,8 +106,6 @@ class Scoreboard extends Component {
 
         this.handleScore('left');
         this.handleScore('right');
-
-        console.log(this.settings.max);
     }
 
     /* Reset Values */

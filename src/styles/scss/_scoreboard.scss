@@ -83,19 +83,11 @@ $this: ".scoreboard";
             }
 
             &.xs {
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
 
                 font-size: 30px;
-                line-height: 25px;
-
-                &.left {
-                    margin-left: 20px;
-                }
-
-                &.right {
-                    margin-right: 20px;
-                }
+                line-height: 28px;
             }
         }
     }
@@ -118,7 +110,7 @@ $this: ".scoreboard";
 
         &__side {
             &__points {
-                margin   : 20px auto 10px;
+                margin   : 20px auto;
                 padding  : 40px 10px;
                 min-width: 110px;
 
@@ -127,16 +119,31 @@ $this: ".scoreboard";
             }
 
             &__team {
-                margin-bottom: 20px;
-
                 .aph.form__control[type="text"] {
                     height: 40px;
                 }
             }
 
-            &__btn:not(.xs) {
-                width : 60px;
-                height: 60px;
+            &__btn {
+                width : 50px;
+                height: 50px;
+            }
+        }
+    }
+
+    @include xxs {
+        &__side {
+            &__btn {
+                width : 40px;
+                height: 40px;
+
+                &.xs {
+                    width : 25px;
+                    height: 25px;
+
+                    font-size  : 15px;
+                    line-height: 18px;
+                }
             }
         }
     }

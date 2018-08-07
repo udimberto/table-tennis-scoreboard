@@ -1,5 +1,6 @@
 
 $this: ".aph.drawer";
+$drawerLg: 320px;
 
 #{$this} {
     top: 60px;
@@ -12,6 +13,11 @@ $this: ".aph.drawer";
         box-shadow: none;
     }
 
+    &.lg {
+        left : -#{$drawerLg};
+        width: $drawerLg;
+    }
+
     &.right {
         right     : -230px;
         left      : auto;
@@ -20,6 +26,10 @@ $this: ".aph.drawer";
 
         h3 {
             text-align: center;
+        }
+
+        &.lg {
+            right: -#{$drawerLg};
         }
 
         &.active {
@@ -50,6 +60,10 @@ $this: ".aph.drawer";
             right     : auto;
             left      : -230px;
             transition: left .2s linear;
+
+            &.lg {
+                left: -#{$drawerLg};
+            }
 
             &.active {
                 left: 0;

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 /* Components */
-import Drawer from './DrawerComponent';
+import DrawerSettingsRanking from './DrawerSettingsRankingComponent';
 
 /* Images */
 import logo from '../images/icon_ping-pong.svg';
@@ -14,29 +14,30 @@ class Navbar extends Component {
     constructor(props) {
         super(props);
 
-        this.props        = props;
-        this.drawerMenu   = null;
+        this.props = props;
+        this.drawerSettingsRanking = null;
+
         this.toggleDrawer = this.toggleDrawer.bind(this);
     }
 
     /* Mount */
     componentDidMount() {
-        this.drawerMenu = document.getElementById('drawerMenu');
+        this.drawerSettingsRanking = document.getElementById('drawerSettingsRanking');
 
         window.addEventListener('click', this.triggerDrawer);
     }
 
     /* Drawer Trigger */
     triggerDrawer(evt) {
-        if (!this.drawerMenu) {
+        if (!this.drawerSettingsRanking) {
             return;
         }
 
         const isTriggerToMenu =
-            (evt.target.id === 'drawerToggleBtn' || evt.target.id === 'drawerToggle') || (
+            (evt.target.id === 'drawerSettingsRankingToggleBtn' || evt.target.id === 'drawerSettingsRankingToggle') || (
                 evt.path ?
                     evt.path.some((element) => {
-                        return element.id === 'drawerMenu';
+                        return element.id === 'drawerSettingsRanking';
                     })
                     :
                     (evt.target.tagName === 'INPUT' || evt.target.tagName === 'LABEL')
@@ -47,16 +48,16 @@ class Navbar extends Component {
             return;
         }
 
-        this.drawerMenu.classList.remove('active');
+        this.drawerSettingsRanking.classList.remove('active');
     }
 
     /* Toggle Drawer */
     toggleDrawer() {
-        if (!this.drawerMenu) {
+        if (!this.drawerSettingsRanking) {
             return;
         }
 
-        this.drawerMenu.classList.toggle('active');
+        this.drawerSettingsRanking.classList.toggle('active');
     }
 
     /* Render */
@@ -78,7 +79,7 @@ class Navbar extends Component {
                                 <li className="aph list__item m-0">
                                     <button className="aph btn btn--link btn--white"
                                             type="button"
-                                            id="drawerToggleBtn"
+                                            id="drawerSettingsRankingToggleBtn"
                                             onClick={this.toggleDrawer}>
                                         Settings
                                     </button>
@@ -86,14 +87,14 @@ class Navbar extends Component {
                             </ul>
                             <button className="aph navbar__menu__drawer"
                                     type="button"
-                                    id="drawerToggle"
+                                    id="drawerSettingsRankingToggle"
                                     onClick={this.toggleDrawer}>
                                 <span className="aph navbar__menu__drawer__hamburguer"></span>
                             </button>
                         </div>
                     </div>
                 </div>
-                <Drawer id="drawerMenu" toggleDrawer={this.toggleDrawer} />
+                <DrawerSettingsRanking id="drawerSettingsRanking" toggleDrawer={this.toggleDrawer} />
             </nav>
         )
     }

@@ -26,6 +26,10 @@ const setData = (matchSide, win) => {
                 victories: (win ? 1 : 0),
             };
 
+            while (matchSide.team.charAt(matchSide.team.length) === ' ') {
+                matchSide.team = matchSide.team.slice(0, (matchSide.team.length - 1));
+            }
+
             ranking
             .doc(matchSide.team)
             .get()
