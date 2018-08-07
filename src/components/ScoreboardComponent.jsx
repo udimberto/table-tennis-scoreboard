@@ -92,24 +92,27 @@ class Scoreboard extends Component {
 
     /* Check Score */
     checkScore() {
-        const max  = this.settings.max;
-        const toOt = (max - 1);
-        const isOt =
-            (this.state.left.points === toOt) &&
-            (this.state.right.points === toOt)
+        const max   = this.settings.max;
+        const toEnd = (max - 1);
+        const isOt  =
+            (this.state.left.points === toEnd) &&
+            (this.state.right.points === toEnd)
         ;
 
         if (isOt) {
-            this.settings.max = (this.settings.max + this.settings.ot);
+            this.settings.max = (max + (max - toEnd));
             return;
         }
 
         this.handleScore('left');
         this.handleScore('right');
+
+        console.log(this.settings.max);
     }
 
     /* Reset Values */
     resetValues(teamLeft, teamRight) {
+        const _winner    = this.state.winner;
         const _teamLeft  = teamLeft || (this.state.left.team);
         const _teamRight = teamRight || (this.state.right.team);
 
@@ -120,11 +123,11 @@ class Scoreboard extends Component {
                     ...this.state,
                     left: {
                         ...this.state.left,
-                        team: _teamLeft,
+                        team: _winner === 'left' ? _teamLeft : '',
                     },
                     right: {
                         ...this.state.right,
-                        team: _teamRight,
+                        team: _winner === 'right' ? _teamRight : '',
                     },
                 })
             }
@@ -133,8 +136,8 @@ class Scoreboard extends Component {
 
     /* Restart */
     restart() {
-        const teamLeft   = (this.state.left.team || 'Hoyama');
-        const teamRight  = (this.state.right.team || 'Calderano');
+        const teamLeft   = (this.state.left.team || 'GHOST1');
+        const teamRight  = (this.state.right.team || 'GHOST2');
         const confirmMsg =
             'MATCH IN PROGRESS\n' +
             teamLeft +
@@ -158,9 +161,9 @@ class Scoreboard extends Component {
     end() {
         const winnerTeam =
             (this.state.left.points > this.state.right.points) ?
-                this.state.left.team
+                'left'
                 :
-                this.state.right.team
+                'right'
         ;
 
         if (!winnerTeam) {
@@ -200,6 +203,7 @@ class Scoreboard extends Component {
                                             <Side id="left" {...this.state.left}
                                                   add={ () => this.add('left') }
                                                   remove={ () => this.remove('left') }
+                                                  started={this.state.left.points || this.state.right.points}
                                                   disabled={this.state.status === 'ended'}
                                                   handleInput={this.handleInput}
                                                   settings={this.settings} />
@@ -214,6 +218,7 @@ class Scoreboard extends Component {
                                             <Side id="right" {...this.state.right}
                                                   add={ () => this.add('right') }
                                                   remove={ () => this.remove('right') }
+                                                  started={this.state.left.points || this.state.right.points}
                                                   disabled={this.state.status === 'ended'}
                                                   handleInput={this.handleInput}
                                                   settings={this.settings} />

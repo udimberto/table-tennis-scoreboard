@@ -36,7 +36,6 @@ class Matches extends Component {
             matches
             .db
             .orderBy('endedAt', 'desc')
-            .limit(40)
             .onSnapshot((matchesSnapshot) => {
                 let matches = [];
 
@@ -58,7 +57,21 @@ class Matches extends Component {
         return (
             <div className="matches">
                 <h3 className="aph">
-                    Latest Matches
+                    Latest
+                    {
+                        (this.state.matches.length) ?
+                            (
+                                ' ' + this.state.matches.length.toLocaleString(
+                                    navigator.language,
+                                    {
+                                        minimumFractionDigits: 0
+                                    }
+                                ) + ' '
+                            )
+                            :
+                            ('')
+                    }
+                    Matches
                 </h3>
                 {
                     (this.state.loading) ?

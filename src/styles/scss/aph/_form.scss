@@ -22,6 +22,19 @@ $this: ".aph.form";
                 box-shadow: none;
                 border-bottom-color: $colorWhite;
             }
+
+            &:disabled {
+                color     : rgba($colorWhite, 0.5);
+                background: transparent;
+
+                border-bottom-color: transparent;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    border-bottom-color: transparent;
+                }
+            }
         }
     }
 

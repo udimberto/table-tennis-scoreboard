@@ -116,6 +116,14 @@
   box-shadow: none;
   border-bottom-color: #fff;
 }
+.aph.form__control[type=text]:disabled, .aph.form__control[type=number]:disabled {
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.aph.form__control[type=text]:disabled:hover, .aph.form__control[type=text]:disabled:focus, .aph.form__control[type=text]:disabled:active, .aph.form__control[type=number]:disabled:hover, .aph.form__control[type=number]:disabled:focus, .aph.form__control[type=number]:disabled:active {
+  border-bottom-color: transparent;
+}
 @media (max-width: 47.9em) {
   .aph.form__control {
     border-top: none !important;

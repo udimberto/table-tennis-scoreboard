@@ -38,7 +38,8 @@ class ScoreboardSide extends Component {
                            id={this.state.id}
                            name={this.state.id}
                            value={this.state.team}
-                           placeholder={this.state.id.toUpperCase() + ' player'}
+                           disabled={this.state.started || this.state.disabled}
+                           placeholder={this.state.id.toUpperCase() + ' team'}
                            onChange={this.state.handleInput} />
                 </div>
                 <button className="scoreboard__side__btn"
