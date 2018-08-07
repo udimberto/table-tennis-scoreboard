@@ -12,8 +12,8 @@ let data = Object.assign({}, _default);
 /**
  * Get settings data
  */
-const get = () => {
-    return data;
+const get = (newer) => {
+    return newer ? Object.assign({}, _default) : data;
 };
 
 /**

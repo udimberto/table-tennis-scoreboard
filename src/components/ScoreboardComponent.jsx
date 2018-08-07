@@ -159,12 +159,13 @@ class Scoreboard extends Component {
 
     /* End Match */
     end() {
-        const winnerTeam =
+        const winnerTeamSide =
             (this.state.left.points > this.state.right.points) ?
                 'left'
                 :
                 'right'
         ;
+        const winnerTeam = this.state[winnerTeamSide].team;
 
         if (!winnerTeam) {
             window.alert('THE WINNER TEAM doesn\'t have a name.\nSo, it\'s not been saved to our database.');
@@ -173,20 +174,21 @@ class Scoreboard extends Component {
         this.setState({
             ...this.state,
             status: 'ended',
-            winner: winnerTeam,
+            winner: winnerTeamSide,
         }, () => {
+            this.settings = settings.get(true);
+
             if (!winnerTeam) {
                 return;
             }
 
             matches.save(Object.assign({}, this.state));
         });
-
     }
 
     /* Start Over */
     start() {
-        this.settings = settings.get();
+        this.settings = settings.get(true);
         this.resetValues();
     }
 

@@ -39,8 +39,6 @@ $this: ".scoreboard";
         }
 
         &__team {
-            margin-bottom: 40px;
-
             .aph.form__control[type="text"] {
                 height: 60px;
 
@@ -72,6 +70,8 @@ $this: ".scoreboard";
 
             transition: opacity .25s linear;
 
+            vertical-align: middle;
+
             &:hover,
             &:focus,
             &:active {
@@ -80,6 +80,22 @@ $this: ".scoreboard";
 
             &:disabled {
                 opacity: 0.15;
+            }
+
+            &.xs {
+                width: 40px;
+                height: 40px;
+
+                font-size: 30px;
+                line-height: 25px;
+
+                &.left {
+                    margin-left: 20px;
+                }
+
+                &.right {
+                    margin-right: 20px;
+                }
             }
         }
     }
@@ -116,6 +132,11 @@ $this: ".scoreboard";
                 .aph.form__control[type="text"] {
                     height: 40px;
                 }
+            }
+
+            &__btn:not(.xs) {
+                width : 60px;
+                height: 60px;
             }
         }
     }

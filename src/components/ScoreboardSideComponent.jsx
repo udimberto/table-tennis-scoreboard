@@ -19,19 +19,6 @@ class ScoreboardSide extends Component {
     render() {
         return (
             <div className="scoreboard__side">
-                <button className="scoreboard__side__btn"
-                        type="button"
-                        tabIndex="-1"
-                        disabled={this.state.points <= 0 || this.state.disabled}
-                        id={`scoreboardSide${this.state.id}BtnRemove`}
-                        onClick={this.props.remove}>
-                    —
-                </button>
-                <div>
-                    <div className="scoreboard__side__points">
-                        {this.state.points}
-                    </div>
-                </div>
                 <div className="scoreboard__side__team">
                     <input className="aph form__control text-center"
                            type="text"
@@ -42,14 +29,55 @@ class ScoreboardSide extends Component {
                            placeholder={this.state.id.toUpperCase() + ' team'}
                            onChange={this.state.handleInput} />
                 </div>
-                <button className="scoreboard__side__btn"
-                        type="button"
-                        tabIndex="-1"
-                        disabled={this.state.points >= this.state.settings.max || this.state.disabled}
-                        id={`scoreboardSide${this.state.id}BtnAdd`}
-                        onClick={this.props.add}>
-                    +
-                </button>
+                <div>
+                    <div className="scoreboard__side__points">
+                        {this.state.points}
+                    </div>
+                </div>
+                {
+                    (this.state.id === 'left') ?
+                        (
+                            <div className="scoreboard__side__actions">
+                                <button className="scoreboard__side__btn"
+                                        type="button"
+                                        tabIndex="-1"
+                                        disabled={this.state.points >= this.state.settings.max || this.state.disabled}
+                                        id={`scoreboardSide${this.state.id}BtnAdd`}
+                                        onClick={this.props.add}>
+                                    +
+                                </button>
+                                <button className={`scoreboard__side__btn xs ${this.state.id}`}
+                                        type="button"
+                                        tabIndex="-1"
+                                        disabled={this.state.points <= 0 || this.state.disabled}
+                                        id={`scoreboardSide${this.state.id}BtnRemove`}
+                                        onClick={this.props.remove}>
+                                    —
+                                </button>
+                            </div>
+                        )
+                        :
+                        (
+                            <div className="scoreboard__side__actions">
+                                <button className={`scoreboard__side__btn xs ${this.state.id}`}
+                                        type="button"
+                                        tabIndex="-1"
+                                        disabled={this.state.points <= 0 || this.state.disabled}
+                                        id={`scoreboardSide${this.state.id}BtnRemove`}
+                                        onClick={this.props.remove}>
+                                    —
+                                </button>
+                                <button className="scoreboard__side__btn"
+                                        type="button"
+                                        tabIndex="-1"
+                                        disabled={this.state.points >= this.state.settings.max || this.state.disabled}
+                                        id={`scoreboardSide${this.state.id}BtnAdd`}
+                                        onClick={this.props.add}>
+                                    +
+                                </button>
+                            </div>
+                        )
+                }
             </div>
         );
     }
