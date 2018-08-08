@@ -3,11 +3,9 @@ $this: ".matches";
 
 #{$this} {
     &__match {
-        padding: 15px 20px;
-        margin : 0 0 20px;
-
-        background   : rgba($colorWhite, .15);
-        border-radius: 8px;
+        padding: 10px 10px 5px;
+        margin : 5px 0 0;
+        border-top: 1px solid rgba($colorWhite, .15);
 
         &__vs,
         &__team {
@@ -15,16 +13,13 @@ $this: ".matches";
         }
 
         &__team {
-            &.col-xs {
-                -ms-flex-preferred-size: 37.5%;
-                flex-basis: 37.5%;
-                max-width: 37.5%;
+            font-size  : 12px;
+            line-height: 15px;
 
-                @include lg {
-                    -ms-flex-preferred-size: 28.5%;
-                    flex-basis: 28.5%;
-                    max-width: 28.5%;
-                }
+            &.col-xs {
+                -ms-flex-preferred-size: 29%;
+                flex-basis: 29%;
+                max-width: 29%;
             }
 
             &.left {
@@ -36,15 +31,16 @@ $this: ".matches";
             }
 
             &__points {
-                line-height: 15px;
+                font-size  : 12px;
+                line-height: 10px;
 
                 display: inline-block;
-                margin : 10px 0 0;
-                padding: 12px 10px 13px;
-                min-width: 40px;
+                margin : 5px 0 0;
+                padding: 7px 0;
+                min-width: 25px;
 
                 background: rgba($colorBlack, .15);
-                border-radius: 8px;
+                border-radius: 4px;
             }
         }
 
@@ -53,25 +49,12 @@ $this: ".matches";
             line-height: 10px;
 
             &__label {
+                display: inline-block;
                 margin : 0 3px;
                 padding: 3px 5px;
                 background: rgba($colorBlack, 0.1);
                 border-radius: 4px;
-            }
-        }
-    }
-
-    @include xs {
-        &__match {
-            border-radius: 0;
-            margin-bottom: 10px;
-
-            &__team {
-                &.col-xs {
-                    -ms-flex-preferred-size: 29%;
-                    flex-basis: 29%;
-                    max-width: 29%;
-                }
+                opacity: 0.5;
             }
         }
     }

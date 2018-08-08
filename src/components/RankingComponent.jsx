@@ -54,8 +54,8 @@ class Ranking extends Component {
 
     render() {
         return (
-            <div className="ranking">
-                <h3 className="aph">
+            <div className="ranking text-center">
+                <h3 className="aph m-0-top">
                     Ranking
                 </h3>
                 {
@@ -71,8 +71,8 @@ class Ranking extends Component {
                 {
                     (this.state.ranking.length) ?
                         (
-                            <div className="aph m--10-hor-xs">
-                                <div className="aph visible-xs p-20-hor m-10-bot ranking__legend">
+                            <div className="aph m--20-hor">
+                                <div className="aph p-20-hor m-10-bot ranking__legend">
                                     <div className="row middle-xs">
                                         <div className="col-xs-4 text-left">
                                             <strong>V</strong>ictories
@@ -89,30 +89,30 @@ class Ranking extends Component {
                                 <table className="aph table table--responsive table--hover">
                                     <thead>
                                         <tr>
-                                            <th>
+                                            <th className="text-center">
                                                 #
                                             </th>
-                                            <th className="aph p-0-hor">
+                                            <th className="aph p-0-hor text-left">
                                                 Player
                                             </th>
                                             <th className="text-center">
-                                                V<span className="hide-xs">ictories</span>
+                                                V
                                             </th>
                                             <th className="text-center">
-                                                M<span className="hide-xs">atches</span>
+                                                M
                                             </th>
                                             <th className="text-center">
-                                                P<span className="hide-xs">oints</span>
+                                                P
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {this.state.ranking.map((player, playerIndex) =>
                                             <tr key={playerIndex}>
-                                                <td>
+                                                <td className="text-center">
                                                     {playerIndex + 1}
                                                 </td>
-                                                <td className="aph p-0-hor">
+                                                <td className="aph p-0-hor text-left">
                                                     {player.team}
                                                 </td>
                                                 <td className="text-center">

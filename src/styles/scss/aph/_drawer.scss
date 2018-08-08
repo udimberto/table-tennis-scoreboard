@@ -9,13 +9,17 @@ $drawerLg: 320px;
     color     : $colorWhite;
     background: lighten($colorNavbar, 2%);
 
-    &.active {
-        box-shadow: none;
-    }
-
     &.lg {
         left : -#{$drawerLg};
         width: $drawerLg;
+
+        &.active {
+            left: 0;
+        }
+    }
+
+    &.active {
+        box-shadow: none;
     }
 
     &.right {
@@ -24,12 +28,9 @@ $drawerLg: 320px;
         transition: right .2s linear;
         animation : none;
 
-        h3 {
-            text-align: center;
-        }
-
         &.lg {
             right: -#{$drawerLg};
+            left : auto;
         }
 
         &.active {

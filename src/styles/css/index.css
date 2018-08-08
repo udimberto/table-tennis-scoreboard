@@ -1,5 +1,7 @@
 /* Media Querie mixins
 -------------------------------------------------------------------------- */
+/* Fonts
+   -------------------------------------------------------------------------- */
 /* Forms
    -------------------------------------------------------------------------- */
 /* Transitions
@@ -50,7 +52,10 @@
 }
 .tts__body {
   width: 100%;
+  height: 100%;
   min-height: 100%;
+}
+.tts__content {
   color: #fff;
   background: linear-gradient(145deg, #008bc1, #00b8ff);
 }
@@ -67,12 +72,15 @@
   color: #fff;
   background: rgba(0, 134, 178, 0.95);
 }
-.aph.drawer.active {
-  box-shadow: none;
-}
 .aph.drawer.lg {
   left: -320px;
   width: 320px;
+}
+.aph.drawer.lg.active {
+  left: 0;
+}
+.aph.drawer.active {
+  box-shadow: none;
 }
 .aph.drawer.right {
   right: -230px;
@@ -80,11 +88,9 @@
   transition: right 0.2s linear;
   animation: none;
 }
-.aph.drawer.right h3 {
-  text-align: center;
-}
 .aph.drawer.right.lg {
   right: -320px;
+  left: auto;
 }
 .aph.drawer.right.active {
   right: 0;
@@ -153,34 +159,42 @@
   color: #fff;
 }
 .aph.navbar__nav .aph.navbar__menu__drawer {
-  padding-top: 28px;
-  padding-bottom: 28px;
-  background: transparent;
+  z-index: 2;
+  opacity: 0.8;
+  padding: 32px 0 0;
   outline: 0;
   border: 0;
   margin: 0;
+  background: transparent;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 50% 8px;
+  font-size: 12px;
+}
+.aph.navbar__nav .aph.navbar__menu__drawer:before, .aph.navbar__nav .aph.navbar__menu__drawer:after {
+  display: none;
+}
+.aph.navbar__nav .aph.navbar__menu__drawer.right {
+  right: 0;
+  left: auto;
 }
 
 .matches__match {
-  padding: 15px 20px;
-  margin: 0 0 20px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
+  padding: 10px 10px 5px;
+  margin: 5px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 .matches__match__vs, .matches__match__team {
   padding-top: 8px;
 }
-.matches__match__team.col-xs {
-  -ms-flex-preferred-size: 37.5%;
-  flex-basis: 37.5%;
-  max-width: 37.5%;
+.matches__match__team {
+  font-size: 12px;
+  line-height: 15px;
 }
-@media (min-width: 75em) {
-  .matches__match__team.col-xs {
-    -ms-flex-preferred-size: 28.5%;
-    flex-basis: 28.5%;
-    max-width: 28.5%;
-  }
+.matches__match__team.col-xs {
+  -ms-flex-preferred-size: 29%;
+  flex-basis: 29%;
+  max-width: 29%;
 }
 .matches__match__team.left {
   text-align: right;
@@ -189,34 +203,26 @@
   text-align: left;
 }
 .matches__match__team__points {
-  line-height: 15px;
+  font-size: 12px;
+  line-height: 10px;
   display: inline-block;
-  margin: 10px 0 0;
-  padding: 12px 10px 13px;
-  min-width: 40px;
+  margin: 5px 0 0;
+  padding: 7px 0;
+  min-width: 25px;
   background: rgba(45, 45, 45, 0.15);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .matches__match__duration {
   font-size: 10px;
   line-height: 10px;
 }
 .matches__match__duration__label {
+  display: inline-block;
   margin: 0 3px;
   padding: 3px 5px;
   background: rgba(45, 45, 45, 0.1);
   border-radius: 4px;
-}
-@media (max-width: 47.9em) {
-  .matches__match {
-    border-radius: 0;
-    margin-bottom: 10px;
-  }
-  .matches__match__team.col-xs {
-    -ms-flex-preferred-size: 29%;
-    flex-basis: 29%;
-    max-width: 29%;
-  }
+  opacity: 0.5;
 }
 
 .ranking__legend {
@@ -240,7 +246,7 @@
 
 .scoreboard {
   margin: 0 auto;
-  padding: 80px 0 60px;
+  padding: 80px 0;
   width: 100%;
   max-width: 820px;
 }
@@ -305,9 +311,6 @@
   line-height: 28px;
 }
 @media (max-width: 47.9em) {
-  .scoreboard {
-    padding-bottom: 40px;
-  }
   .scoreboard__vs, .scoreboard__side__btn, .scoreboard__side__team .aph.form__control[type=text] {
     font-size: 30px;
     line-height: 30px;

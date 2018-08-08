@@ -2,10 +2,13 @@
 import React, { Component } from 'react';
 
 /* Components */
-import DrawerSettingsRanking from './DrawerSettingsRankingComponent';
+import Matches from './MatchesComponent';
+import Ranking from './RankingComponent';
 
 /* Images */
 import logo from '../images/icon_ping-pong.svg';
+import trophy from '../images/icon_trophy.svg';
+import score from '../images/icon_scoreboard.svg';
 
 /* Component */
 class Navbar extends Component {
@@ -15,29 +18,33 @@ class Navbar extends Component {
         super(props);
 
         this.props = props;
-        this.drawerSettingsRanking = null;
+
+        this.drawerMatches         = null;
+        this.drawerRanking = null;
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
     }
 
     /* Mount */
     componentDidMount() {
-        this.drawerSettingsRanking = document.getElementById('drawerSettingsRanking');
+        this.drawerMatches         = document.getElementById('drawerMatches');
+        this.drawerRanking = document.getElementById('drawerRanking');
 
         window.addEventListener('click', this.triggerDrawer);
     }
 
     /* Drawer Trigger */
     triggerDrawer(evt) {
-        if (!this.drawerSettingsRanking) {
+        if (!this.drawerMatches && !this.drawerRanking) {
             return;
         }
 
         const isTriggerToMenu =
-            (evt.target.id === 'drawerSettingsRankingToggleBtn' || evt.target.id === 'drawerSettingsRankingToggle') || (
+            (evt.target.id === 'drawerMatchesToggleBtn' || evt.target.id === 'drawerMatchesToggle') ||
+            (evt.target.id === 'drawerRankingToggleBtn' || evt.target.id === 'drawerRankingToggle') || (
                 evt.path ?
                     evt.path.some((element) => {
-                        return element.id === 'drawerSettingsRanking';
+                        return element.id === 'drawerMatches' || element.id === 'drawerRanking';
                     })
                     :
                     (evt.target.tagName === 'INPUT' || evt.target.tagName === 'LABEL')
@@ -48,16 +55,23 @@ class Navbar extends Component {
             return;
         }
 
-        this.drawerSettingsRanking.classList.remove('active');
+        this.drawerMatches.classList.remove('active');
+        this.drawerRanking.classList.remove('active');
     }
 
     /* Toggle Drawer */
-    toggleDrawer() {
-        if (!this.drawerSettingsRanking) {
+    toggleDrawer(drawerId) {
+        if (!this.drawerMatches && !this.drawerRanking) {
             return;
         }
 
-        this.drawerSettingsRanking.classList.toggle('active');
+        if (drawerId && this[drawerId]) {
+            this[drawerId].classList.toggle('active');
+            return;
+        }
+
+        this.drawerMatches.classList.toggle('active');
+        this.drawerRanking.classList.toggle('active');
     }
 
     /* Render */
@@ -79,22 +93,45 @@ class Navbar extends Component {
                                 <li className="aph list__item m-0">
                                     <button className="aph btn btn--link btn--white"
                                             type="button"
-                                            id="drawerSettingsRankingToggleBtn"
-                                            onClick={this.toggleDrawer}>
-                                        Settings
+                                            id="drawerRankingToggleBtn"
+                                            onClick={() => this.toggleDrawer('drawerRanking')}>
+                                        ranking
+                                    </button>
+                                </li>
+                                <li className="aph list__item m-0">
+                                    <button className="aph btn btn--link btn--white"
+                                            type="button"
+                                            id="drawerMatchesToggleBtn"
+                                            onClick={() => this.toggleDrawer('drawerMatches')}>
+                                        matches
                                     </button>
                                 </li>
                             </ul>
                             <button className="aph navbar__menu__drawer"
                                     type="button"
-                                    id="drawerSettingsRankingToggle"
-                                    onClick={this.toggleDrawer}>
-                                <span className="aph navbar__menu__drawer__hamburguer"></span>
+                                    id="drawerRankingToggle"
+                                    onClick={() => this.toggleDrawer('drawerRanking')}
+                                    style={ { backgroundImage: `url(${trophy})` } }>
+                                ranking
+                            </button>
+                            <button className="aph navbar__menu__drawer right"
+                                    type="button"
+                                    id="drawerRankingToggle"
+                                    onClick={() => this.toggleDrawer('drawerMatches')}
+                                    style={ { backgroundImage: `url(${score})` } }>
+                                matches
                             </button>
                         </div>
                     </div>
                 </div>
-                <DrawerSettingsRanking id="drawerSettingsRanking" toggleDrawer={this.toggleDrawer} />
+                <div id="drawerMatches" className="aph drawer right lg no-select p-40-bot p-0-hor">
+                    <Matches />
+                </div>
+                <div id="drawerRanking" className="aph drawer lg no-select p-40-bot">
+                    <div className="aph p-40-bot">
+                        <Ranking />
+                    </div>
+                </div>
             </nav>
         )
     }

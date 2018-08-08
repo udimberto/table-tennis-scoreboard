@@ -55,8 +55,8 @@ class Matches extends Component {
 
     render() {
         return (
-            <div className="matches">
-                <h3 className="aph">
+            <div className="matches text-center">
+                <h3 className="aph m-0-top p-20-hor">
                     Latest
                     {
                         (this.state.matches.length) ?
@@ -86,10 +86,10 @@ class Matches extends Component {
                 {
                     (this.state.matches.length) ?
                         (
-                            <div className="aph m--10-hor-xs">
+                            <div className="aph m--10-hor-xs p-40-bot">
                                 <div className="row middle-xs">
                                     {this.state.matches.map((match, matchId) =>
-                                        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 aph p-0-hor-xs"
+                                        <div className="col-xs-12 aph p-0-hor-xs"
                                              key={matchId}>
                                             <div className="matches__match">
                                                 <div className="matches__match__duration text-center">
@@ -97,8 +97,7 @@ class Matches extends Component {
                                                         {moment(match.startedAt).format('MMMM DD HH:mm').toUpperCase()}
                                                     </span>
                                                     <span className="matches__match__duration__label">
-                                                        {moment(match.endedAt).diff(moment(match.startedAt), 'minutes') + ' '}
-                                                        MINUTES
+                                                        {moment(match.endedAt).diff(moment(match.startedAt), 'minutes') + 'M'}
                                                     </span>
                                                     <span className="matches__match__duration__label">
                                                         {moment(match.endedAt).format('MMMM DD HH:mm').toUpperCase()}
@@ -110,13 +109,13 @@ class Matches extends Component {
                                                             {match.left.team}
                                                         </div>
                                                     </div>
-                                                    <div className="col-xs-2 col-sm-1 col-md-1 col-lg-2 text-center">
+                                                    <div className="col-xs-2 text-center">
                                                         <div className="matches__match__team__points">
                                                             {match.left.points}
                                                         </div>
                                                     </div>
                                                     <div className="col-xs-1 text-center matches__match__vs">&times;</div>
-                                                    <div className="col-xs-2 col-sm-1 col-md-1 col-lg-2 text-center">
+                                                    <div className="col-xs-2 text-center">
                                                         <div className="matches__match__team__points">
                                                             {match.right.points}
                                                         </div>

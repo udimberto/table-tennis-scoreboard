@@ -18,13 +18,30 @@ $this: ".aph.navbar";
 
             &__menu {
                 &__drawer {
-                    padding-top   : 28px;
-                    padding-bottom: 28px;
+                    z-index: 2;
+                    opacity: 0.8;
+                    padding: 32px 0 0;
 
-                    background: transparent;
                     outline   : 0;
                     border    : 0;
                     margin    : 0;
+                    background: transparent;
+
+                    background-size: 30px;
+                    background-repeat: no-repeat;
+                    background-position: 50% 8px;
+
+                    @include font(12px);
+
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+
+                    &.right {
+                        right: 0;
+                        left : auto;
+                    }
                 }
             }
         }
