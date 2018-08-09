@@ -48,7 +48,7 @@ class ScoreboardSide extends Component {
                                         +
                                     </button>
                                 </div>
-                                <div className="col-xs-6 text-left">
+                                <div className="col-xs-6 text-center">
                                     <button className={`scoreboard__side__btn xs ${this.state.id}`}
                                             type="button"
                                             tabIndex="-1"
@@ -63,7 +63,7 @@ class ScoreboardSide extends Component {
                         :
                         (
                             <div className="scoreboard__side__actions row middle-xs">
-                                <div className="col-xs-6 text-right">
+                                <div className="col-xs-6 text-center">
                                     <button className={`scoreboard__side__btn xs ${this.state.id}`}
                                             type="button"
                                             tabIndex="-1"

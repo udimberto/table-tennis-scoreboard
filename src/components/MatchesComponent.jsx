@@ -36,6 +36,7 @@ class Matches extends Component {
             matches
             .db
             .orderBy('endedAt', 'desc')
+            .limit(25)
             .onSnapshot((matchesSnapshot) => {
                 let matches = [];
 
@@ -55,9 +56,9 @@ class Matches extends Component {
 
     render() {
         return (
-            <div className="matches text-center">
+            <div className="matches aph text-center p-40-bot">
                 <h3 className="aph m-0-top p-20-hor">
-                    Latest
+                    Last
                     {
                         (this.state.matches.length) ?
                             (
@@ -109,13 +110,13 @@ class Matches extends Component {
                                                             {match.left.team}
                                                         </div>
                                                     </div>
-                                                    <div className="col-xs-2 text-center">
+                                                    <div className="col-xs text-center matches__match__points-col">
                                                         <div className="matches__match__team__points">
                                                             {match.left.points}
                                                         </div>
                                                     </div>
-                                                    <div className="col-xs-1 text-center matches__match__vs">&times;</div>
-                                                    <div className="col-xs-2 text-center">
+                                                    <div className="col-xs text-center matches__match__vs">&times;</div>
+                                                    <div className="col-xs text-center matches__match__points-col">
                                                         <div className="matches__match__team__points">
                                                             {match.right.points}
                                                         </div>

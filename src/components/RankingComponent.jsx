@@ -71,7 +71,7 @@ class Ranking extends Component {
                 {
                     (this.state.ranking.length) ?
                         (
-                            <div className="aph m--20-hor">
+                            <div className="aph m--20-hor p-40-bot">
                                 <div className="aph p-20-hor m-10-bot ranking__legend">
                                     <div className="row middle-xs">
                                         <div className="col-xs-4 text-left">
@@ -89,19 +89,19 @@ class Ranking extends Component {
                                 <table className="aph table table--responsive table--hover">
                                     <thead>
                                         <tr>
-                                            <th className="text-center">
+                                            <th className="aph p-5-hor text-center">
                                                 #
                                             </th>
                                             <th className="aph p-0-hor text-left">
                                                 Player
                                             </th>
-                                            <th className="text-center">
+                                            <th className="aph p-5-hor text-center">
                                                 V
                                             </th>
-                                            <th className="text-center">
+                                            <th className="aph p-5-hor text-center">
                                                 M
                                             </th>
-                                            <th className="text-center">
+                                            <th className="aph p-5-hor text-center">
                                                 P
                                             </th>
                                         </tr>
@@ -109,13 +109,13 @@ class Ranking extends Component {
                                     <tbody>
                                         {this.state.ranking.map((player, playerIndex) =>
                                             <tr key={playerIndex}>
-                                                <td className="text-center">
+                                                <td className="aph p-5-hor text-center">
                                                     {playerIndex + 1}
                                                 </td>
                                                 <td className="aph p-0-hor text-left">
                                                     {player.team}
                                                 </td>
-                                                <td className="text-center">
+                                                <td className="aph p-0-hor text-center">
                                                     {
                                                         player
                                                         .victories
@@ -127,7 +127,7 @@ class Ranking extends Component {
                                                         )
                                                     }
                                                 </td>
-                                                <td className="text-center">
+                                                <td className="aph p-5-hor text-center">
                                                     {
                                                         player
                                                         .matches
@@ -139,7 +139,7 @@ class Ranking extends Component {
                                                         )
                                                     }
                                                 </td>
-                                                <td className="text-center">
+                                                <td className="aph p-0-hor text-center">
                                                     {
                                                         player
                                                         .points

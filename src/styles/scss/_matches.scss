@@ -7,9 +7,30 @@ $this: ".matches";
         margin : 5px 0 0;
         border-top: 1px solid rgba($colorWhite, .15);
 
-        &__vs,
+        &__points-col {
+            &.col-xs {
+                padding: 0;
+
+                -ms-flex-preferred-size: 30px;
+                flex-basis: 30px;
+                max-width: 30px;
+            }
+        }
+
+        &__vs {
+            &.col-xs {
+                padding: 2px 0 0;
+
+                font-weight: 100;
+
+                -ms-flex-preferred-size: 10px;
+                flex-basis: 10px;
+                max-width: 10px;
+            }
+        }
+
         &__team {
-            padding-top: 8px;
+            padding-top: 7px;
         }
 
         &__team {
@@ -17,9 +38,9 @@ $this: ".matches";
             line-height: 15px;
 
             &.col-xs {
-                -ms-flex-preferred-size: 29%;
-                flex-basis: 29%;
-                max-width: 29%;
+                -ms-flex-preferred-size: calc(50% - 35px);
+                flex-basis: calc(50% - 35px);
+                max-width: calc(50% - 35px);
             }
 
             &.left {

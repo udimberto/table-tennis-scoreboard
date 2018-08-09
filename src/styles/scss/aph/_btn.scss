@@ -1,0 +1,8 @@
+
+$this: ".aph.btn";
+
+#{$this} {
+    &:disabled {
+        opacity: 0.5;
+    }
+}

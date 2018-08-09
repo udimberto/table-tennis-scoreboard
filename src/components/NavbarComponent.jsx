@@ -19,7 +19,7 @@ class Navbar extends Component {
 
         this.props = props;
 
-        this.drawerMatches         = null;
+        this.drawerMatches = null;
         this.drawerRanking = null;
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -27,7 +27,7 @@ class Navbar extends Component {
 
     /* Mount */
     componentDidMount() {
-        this.drawerMatches         = document.getElementById('drawerMatches');
+        this.drawerMatches = document.getElementById('drawerMatches');
         this.drawerRanking = document.getElementById('drawerRanking');
 
         window.addEventListener('click', this.triggerDrawer);
@@ -67,6 +67,13 @@ class Navbar extends Component {
 
         if (drawerId && this[drawerId]) {
             this[drawerId].classList.toggle('active');
+
+            if (drawerId === 'drawerMatches') {
+                this.drawerRanking.classList.remove('active');
+            } else {
+                this.drawerMatches.classList.remove('active');
+            }
+
             return;
         }
 
@@ -78,7 +85,7 @@ class Navbar extends Component {
     render() {
         return (
             <nav>
-                <div className="aph navbar navbar--inverted navbar--fixed-top">
+                <div className="aph navbar navbar--inverted navbar--fixed-top no-select">
                     <div className="aph container fluid">
                         <div className="aph navbar__nav">
                             <span className="aph navbar__brand">

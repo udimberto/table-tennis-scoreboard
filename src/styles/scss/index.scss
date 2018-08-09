@@ -9,6 +9,7 @@
 @import "logo";
 
 // Aphrodite Overrides
+@import "aph/btn";
 @import "aph/drawer";
 @import "aph/form";
 @import "aph/navbar";
@@ -17,3 +18,8 @@
 @import "matches";
 @import "ranking";
 @import "scoreboard";
+
+// Safari iOS double tap don't zoom
+button {
+    touch-action: manipulation;
+}

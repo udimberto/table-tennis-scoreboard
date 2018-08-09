@@ -4,10 +4,11 @@ $drawerLg: 320px;
 
 #{$this} {
     top: 60px;
+    z-index: 1050;
     border-right: 0;
 
     color     : $colorWhite;
-    background: lighten($colorNavbar, 2%);
+    background: rgba(darken($colorBlue, 10%), .98);
 
     &.lg {
         left : -#{$drawerLg};
