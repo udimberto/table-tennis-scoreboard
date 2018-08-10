@@ -21,11 +21,11 @@ class Ranking extends Component {
 
     /* Mount */
     componentDidMount() {
-        this.watchRanking();
+        this.watchRank();
     }
 
-    /* Watch for new Matches */
-    watchRanking() {
+    /* Watch for new rank data */
+    watchRank() {
         this.setState({
             ...this.state,
             error  : '',
@@ -49,7 +49,7 @@ class Ranking extends Component {
                     ranking: rank,
                 });
             });
-        })
+        });
     }
 
     render() {

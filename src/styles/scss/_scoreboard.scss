@@ -83,7 +83,7 @@ $this: ".scoreboard";
             }
 
             &.xs {
-                width: 35px;
+                width : 35px;
                 height: 35px;
 
                 font-size: 30px;
@@ -92,7 +92,24 @@ $this: ".scoreboard";
         }
     }
 
+    .aph.autocomplete__list {
+        &__item {
+            padding-top   : 10px;
+            padding-bottom: 9px;
+
+            @include font (16px);
+
+            border-bottom: 1px solid rgba($colorBlack, 0.1);
+
+            &:last-of-type {
+                border-bottom-color: transparent;
+            }
+        }
+    }
+
     @include xs {
+        padding: 110px 0 60px;
+
         &__vs,
         &__side__btn,
         &__side__team .aph.form__control[type="text"] {

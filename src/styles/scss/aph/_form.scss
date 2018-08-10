@@ -36,6 +36,15 @@ $this: ".aph.form";
                 }
             }
         }
+
+        &-with-icon {
+            #{$this} {
+                &__control {
+                    padding-right: 0 !important;
+                    padding-left : 0 !important;
+                }
+            }
+        }
     }
 
     @include xs {
@@ -45,6 +54,15 @@ $this: ".aph.form";
             border-left : none !important;
 
             border-bottom-color: rgba($colorWhite, 0.5) !important;
+
+            &-with-icon {
+                &__button {
+                    top      : -40px !important;
+                    right    : auto !important;
+                    left     : 50% !important;
+                    transform: translateX(-50%) !important;
+                }
+            }
         }
     }
 }

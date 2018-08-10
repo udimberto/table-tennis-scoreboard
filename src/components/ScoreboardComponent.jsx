@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 /* Services */
-import { matchesService as matches, settingsService as settings } from '../services';
+import { matchesService as matches, settingsService as settings, rankingService as rank } from '../services';
 
 /* Components */
 import Side from './ScoreboardSideComponent';
@@ -20,12 +20,33 @@ class Scoreboard extends Component {
         this.props    = props;
         this.state    = matches.get();
         this.settings = settings.get();
+        this.ranking  = [];
 
         this.add         = this.add.bind(this);
         this.remove      = this.remove.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.restart     = this.restart.bind(this);
         this.start       = this.start.bind(this);
+    }
+
+    /* Component Did Mount */
+    componentDidMount() {
+        this.getRank();
+    }
+
+    /* Get rank data */
+    getRank() {
+        rank
+        .db
+        .onSnapshot((rankSnapshot) => {
+            let rank = [];
+
+            rankSnapshot.forEach((doc) => {
+                rank.push(Object.assign(doc.data(), { team: doc.id }));
+            });
+
+            this.ranking = rank;
+        });
     }
 
     /* Add */
@@ -206,7 +227,8 @@ class Scoreboard extends Component {
                                                   started={this.state.left.points || this.state.right.points}
                                                   disabled={this.state.status === 'ended'}
                                                   handleInput={this.handleInput}
-                                                  settings={this.settings} />
+                                                  settings={this.settings}
+                                                  ranking={this.ranking} />
                                     }
                                 </MatchContext.Consumer>
                             </div>
@@ -221,7 +243,8 @@ class Scoreboard extends Component {
                                                   started={this.state.left.points || this.state.right.points}
                                                   disabled={this.state.status === 'ended'}
                                                   handleInput={this.handleInput}
-                                                  settings={this.settings} />
+                                                  settings={this.settings}
+                                                  ranking={this.ranking} />
                                     }
                                 </MatchContext.Consumer>
                             </div>

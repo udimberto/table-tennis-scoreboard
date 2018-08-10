@@ -1,6 +1,8 @@
 /* Modules */
 import React, { Component } from 'react';
 
+import Autocomplete from './AutocompleteComponent';
+
 /* Component */
 class ScoreboardSide extends Component {
 
@@ -8,26 +10,46 @@ class ScoreboardSide extends Component {
     constructor(props) {
         super(props);
 
+        this.props = props;
         this.state = props;
+
+        this.setTeam = this.setTeam.bind(this);
     }
 
-    /* Mount */
-    componentWillReceiveProps(props) {
-        this.setState(props);
+    /* Will Receive Props */
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            ...this.state,
+            ...nextProps
+        });
+    }
+
+    /* Set team name */
+    setTeam(teamName) {
+        this.setState({
+            ...this.state,
+            team: teamName,
+        }, () => {
+            this.state.handleInput({
+                target: {
+                    name : this.state.id,
+                    value: teamName,
+                }
+            });
+        });
     }
 
     render() {
         return (
             <div className="scoreboard__side">
                 <div className="scoreboard__side__team">
-                    <input className="aph form__control text-center"
-                           type="text"
-                           id={this.state.id}
-                           name={this.state.id}
-                           value={this.state.team}
-                           disabled={this.state.started || this.state.disabled}
-                           placeholder={this.state.id.toUpperCase() + ' team'}
-                           onChange={this.state.handleInput} />
+                    <Autocomplete
+                        id={this.state.id.toUpperCase()}
+                        ranking={this.props.ranking}
+                        callback={this.setTeam}
+                        value={this.state.team}
+                        disabled={this.state.started || this.state.disabled}
+                        placeholder={this.state.id.toUpperCase() + ' team'} />
                 </div>
                 <div>
                     <div className="scoreboard__side__points">

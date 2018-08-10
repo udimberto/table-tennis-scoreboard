@@ -85,7 +85,7 @@
   left: 0;
 }
 .aph.drawer.active {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 .aph.drawer.right {
   right: -230px;
@@ -145,6 +145,10 @@
 .aph.form__control[type=text]:disabled:hover, .aph.form__control[type=text]:disabled:focus, .aph.form__control[type=text]:disabled:active, .aph.form__control[type=number]:disabled:hover, .aph.form__control[type=number]:disabled:focus, .aph.form__control[type=number]:disabled:active {
   border-bottom-color: transparent;
 }
+.aph.form__control-with-icon .aph.form__control {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
 @media (max-width: 47.9em) {
   .aph.form__control {
     border-top: none !important;
@@ -152,10 +156,17 @@
     border-left: none !important;
     border-bottom-color: rgba(255, 255, 255, 0.5) !important;
   }
+  .aph.form__control-with-icon__button {
+    top: -40px !important;
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
 }
 
 .aph.navbar {
-  background: rgba(0, 127, 168, 0.5);
+  background: rgba(0, 127, 168, 0.25);
+  box-shadow: none;
 }
 .aph.navbar__nav .aph.navbar__brand__logo {
   background: none;
@@ -328,7 +339,19 @@
   font-size: 30px;
   line-height: 28px;
 }
+.scoreboard .aph.autocomplete__list__item {
+  padding-top: 10px;
+  padding-bottom: 9px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(45, 45, 45, 0.1);
+}
+.scoreboard .aph.autocomplete__list__item:last-of-type {
+  border-bottom-color: transparent;
+}
 @media (max-width: 47.9em) {
+  .scoreboard {
+    padding: 110px 0 60px;
+  }
   .scoreboard__vs, .scoreboard__side__btn, .scoreboard__side__team .aph.form__control[type=text] {
     font-size: 30px;
     line-height: 30px;

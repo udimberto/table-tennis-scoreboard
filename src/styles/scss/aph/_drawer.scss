@@ -20,7 +20,7 @@ $drawerLg: 320px;
     }
 
     &.active {
-        box-shadow: none;
+        box-shadow: none !important;
     }
 
     &.right {

@@ -3,6 +3,7 @@ $this: ".aph.navbar";
 
 #{$this} {
     background: $colorNavbar;
+    box-shadow: none;
 
     &__nav {
         #{$this} {
