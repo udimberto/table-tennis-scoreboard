@@ -3,7 +3,17 @@ $this: ".ranking";
 
 #{$this} {
     &__legend {
-        color: rgba($colorWhite, 0.5);
+        color: lighten($colorBlue, 40%);
+    }
+
+    .aph.form {
+        &__control {
+            color           : $colorWhite !important;
+            box-shadow      : none !important;
+            background-color: transparent !important;
+
+            text-align: center !important;
+        }
     }
 
     .aph.table {
@@ -19,7 +29,7 @@ $this: ".ranking";
             tbody {
                 tr {
                     &:hover {
-                        background: rgba($colorWhite, 0.15) !important;
+                        background: darken($colorBlue, 12%) !important;
                     }
                 }
             }

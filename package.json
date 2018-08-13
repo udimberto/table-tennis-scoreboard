@@ -21,7 +21,7 @@
     "dev": "concurrently --kill-others \"npm run sass\" \"npm run start\"",
     "build": "yarn sass:build && react-scripts build && rm -rf docs && mv build docs",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d docs",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

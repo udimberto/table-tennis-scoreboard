@@ -1,0 +1,40 @@
+
+$this: ".aph.toggle";
+
+#{$this} {
+    &--condensed {
+        #{$this} {
+            &__label {
+                padding-right: 0;
+                padding-left : 0;
+            }
+        }
+    }
+
+    &--inverse {
+        #{$this} {
+            &__label[for] {
+                color: rgba($colorWhite, 0.3);
+                border-bottom-color: rgba($colorWhite, 0.3);
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: rgba($colorWhite, 0.8);
+                    border-bottom-color: rgba($colorWhite, 0.8);
+                }
+            }
+
+            &__radio {
+                &:checked {
+                    + #{$this} {
+                        &__label[for] {
+                            color: $colorWhite;
+                            border-bottom-color: $colorWhite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

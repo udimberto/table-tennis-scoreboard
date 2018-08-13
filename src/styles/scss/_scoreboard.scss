@@ -23,6 +23,9 @@ $this: ".scoreboard";
         &__team .aph.form__control[type="text"] {
             font-size  : 50px;
             line-height: 60px;
+
+            @include placeholder-style(40px, 46px);
+
         }
 
         &__points {
@@ -115,6 +118,8 @@ $this: ".scoreboard";
         &__side__team .aph.form__control[type="text"] {
             font-size  : 30px;
             line-height: 30px;
+
+            @include placeholder-style(30px, 26px);
         }
 
         &__vs {

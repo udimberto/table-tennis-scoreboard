@@ -13,12 +13,23 @@
 /* Forms
    -------------------------------------------------------------------------- */
 
-@mixin placeholder-style ($size: 16px) {
-    font-size  : #{$size} !important;
-    font-style : normal !important;
-    font-weight: normal !important;
+@mixin placeholder-style ($size: 16px, $line: 40px, $color: rgba($colorWhite, 0.25)) {
+    &::placeholder {
+        color: $color;
 
-    color: rgba($colorWhite, 0.25) !important;
+        font-style : normal !important;
+        font-weight: normal !important;
+
+        font-size  : #{$size};
+        line-height: #{$line} !important;
+
+        vertical-align: middle;
+    }
+
+    &::-webkit-input-placeholder {
+        z-index    : 99;
+        line-height: 1.5 !important;
+    }
 }
 
 

@@ -61,7 +61,7 @@ export default class Autocomplete extends Component {
         // and they are initially empty because the Autosuggest is closed.
         this.props = props;
         this.state = {
-            value      : '',
+            value      : this.props.value,
             suggestions: [],
         };
 
@@ -80,6 +80,17 @@ export default class Autocomplete extends Component {
             });
 
             ranking = rank;
+        });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.value === this.state.value) {
+            return;
+        }
+
+        this.setState({
+            ...this.state,
+            value: nextProps.value,
         });
     }
 
@@ -116,6 +127,8 @@ export default class Autocomplete extends Component {
             ...this.state,
             value: '',
         });
+
+        this.props.callback('');
     }
 
     render() {
@@ -143,13 +156,13 @@ export default class Autocomplete extends Component {
                     inputProps={inputProps}
                 />
                 {
-                    (this.props.disabled) ?
+                    (this.props.disabled || !this.state.value) ?
                         ('')
                         :
                         (
                             <button className="aph form__control-with-icon__button"
                                     type="button"
-                                    tabindex="-1"
+                                    tabIndex="-1"
                                     onClick={this.cleanValue}>
                                 &times;
                             </button>

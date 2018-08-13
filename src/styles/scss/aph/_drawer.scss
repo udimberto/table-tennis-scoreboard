@@ -8,7 +8,7 @@ $drawerLg: 320px;
     border-right: 0;
 
     color     : $colorWhite;
-    background: rgba(darken($colorBlue, 10%), .98);
+    background: darken($colorBlue, 10%);
 
     &.lg {
         left : -#{$drawerLg};
@@ -40,20 +40,6 @@ $drawerLg: 320px;
 
         .aph.form__control {
             text-align: center;
-        }
-    }
-
-    .aph {
-        &.list {
-            &__header {
-                color: rgba($colorWhite, 0.75);
-            }
-
-            &__header,
-            &__item,
-            &__item__link {
-                font-weight: 400;
-            }
         }
     }
 

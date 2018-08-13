@@ -104,29 +104,36 @@ class Matches extends Component {
                                                         {moment(match.endedAt).format('MMMM DD HH:mm').toUpperCase()}
                                                     </span>
                                                 </div>
-                                                <div className="row middle-xs">
-                                                    <div className="col-xs matches__match__team left">
-                                                        <div className="text-truncate">
-                                                            {match.left.team}
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-xs text-center matches__match__points-col">
-                                                        <div className="matches__match__team__points">
-                                                            {match.left.points}
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-xs text-center matches__match__vs">&times;</div>
-                                                    <div className="col-xs text-center matches__match__points-col">
-                                                        <div className="matches__match__team__points">
-                                                            {match.right.points}
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-xs matches__match__team right">
-                                                        <div className="text-truncate">
-                                                            {match.right.team}
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+                                                <table className="aph table table--condensed table--responsive">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td className="matches__match__team left">
+                                                                <div className="text-truncate">
+                                                                    {match.left.team || 'GHOST'}
+                                                                </div>
+                                                            </td>
+                                                            <td className="matches__match__points-col text-center">
+                                                                <div className="matches__match__team__points">
+                                                                    {match.left.points}
+                                                                </div>
+                                                            </td>
+                                                            <td className="matches__match__vs text-center">
+                                                                &times;
+                                                            </td>
+                                                            <td className="matches__match__points-col text-center">
+                                                                <div className="matches__match__team__points">
+                                                                    {match.right.points}
+                                                                </div>
+                                                            </td>
+                                                            <td className="matches__match__team right">
+                                                                <div className="text-truncate">
+                                                                    {match.right.team || 'GHOST'}
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     )}
