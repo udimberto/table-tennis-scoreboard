@@ -215,7 +215,7 @@ class Scoreboard extends Component {
         return (
             <MatchContext.Provider value={this.state}>
                 <section className="scoreboard no-select">
-                    <div className="aph container text-center">
+                    <div className="aph container fluid text-center">
                         <div className="row center-xs middle-xs">
                             <div className="col-xs scoreboard__side text-center">
                                 <MatchContext.Consumer>
@@ -251,7 +251,7 @@ class Scoreboard extends Component {
                         </div>
 
                         <div className="row center-xs middle-xs aph m-40-top">
-                            <div className="col-xs-8 col-sm-4 col-md-4 col-lg-4">
+                            <div className="col-xs-8 col-sm-4 col-md-4 col-lg-2">
                                 <div className="aph p-20-top">
                                     {
                                         (this.state.status !== 'ended') ?

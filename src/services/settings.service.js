@@ -1,7 +1,7 @@
 
 /* Default data */
 const _default = {
-    max   : 7,
+    max   : 11,
     ot    : 2,
     bestOf: 1,
 };

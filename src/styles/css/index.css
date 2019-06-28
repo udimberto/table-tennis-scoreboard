@@ -378,6 +378,15 @@
 .scoreboard .aph.autocomplete__list__item:last-of-type {
   border-bottom-color: transparent;
 }
+@media (min-width: 75.1em) {
+  .scoreboard {
+    max-width: 100%;
+  }
+  .scoreboard__side.col-xs {
+    min-width: 460px;
+    max-width: 460px;
+  }
+}
 @media (max-width: 47.9em) {
   .scoreboard {
     padding: 110px 0 60px;
